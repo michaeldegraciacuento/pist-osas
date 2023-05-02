@@ -20,16 +20,16 @@
                 </div>   
                 <div class="col-3">
                     <label for="">Date:</label>
-                    <input type="date" name="date" class="form-control mb-3 text-center text-uppercase mname" >
+                    <input type="date" name="date" class="form-control mb-3 text-center text-uppercase mname" required>
                     <label for="">Location:</label>
-                    <input type="text" name="location" class="form-control mb-3 text-center text-uppercase" >
+                    <input type="text" name="location" class="form-control mb-3 text-center text-uppercase" required>
                 </div>
             </div>
             <input type="file" name="image" id="image" class=" mb-1" required>
             <div class="row">
             <label for="" class="ml-3">Content:</label>
                 <div class="col-12">
-                    <textarea name="content" id="" cols="100" rows="10" class="" placeholder="Type your content here ...."></textarea>
+                    <textarea name="content" id="" cols="100" rows="10" class="" placeholder="Type your content here ...." required></textarea>
                 </div>
             </div>
           </div>

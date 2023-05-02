@@ -17,7 +17,7 @@ class UsersController extends Controller
     {
         $you = auth()->user();
         $users = User::where('id','!=',1)->where('user_type','!=',4)->get();
-        $roles = DB::table('roles')->where('id','!=',1)->get();
+        $roles = DB::table('roles')->where('id','!=',1)->where('id','!=',2)->get();
         return view('dashboard.admin.usersList', compact('users', 'you', 'roles'));
     }
 
