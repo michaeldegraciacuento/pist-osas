@@ -112,17 +112,33 @@
                         <table class="table table-responsive-sm table-striped">
                         <thead>
                           <tr>
-                            <th  width="8%">Image</th>
-                            <th>Fullname</th>
-                            <th>ID Number</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th>Name</th>
+                            <th width="15%">ID Number</th>
+                            <th width="20%">Appoinment Date</th>
+                            <th  width="10%">Status</th>
                             <th width="5%"></th>
                             <th width="5%"></th>
                           </tr>
                         </thead>
                         <tbody>
-                       
+                        @foreach($list_appointment as $std)
+                            <tr>
+                              <td>{{ strtoupper($std->lname) }}, {{strtoupper($std->fname) }} {{ucfirst($std->mname) }}.</td>
+                              <td>{{ $std->uli }}</td>
+                              <td>{{ $std->date }}</td>
+                              @if($std->status == 'Pending')
+                              <td><span class="badge badge-warning">Pending</span></td>
+                              @else
+                              <td><span class="badge badge-success">Approve</span></td>
+                              @endif
+                              <td>
+                                <a href="" class="btn btn-block btn-secondary"><i class="cil-magnifying-glass"></i></a>
+                              </td>
+                              <td>
+                                <button class="btn btn-block btn-primary btn-success btn-update-status" data-url="{{ route('appointments.edit',$std->appointments_id) }}" ><i class="cil-pencil"></i></button>
+                              </td>
+                            </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -131,6 +147,7 @@
             </div>
           </div>
         </div>
+        
 @endif
 @if(auth()->user()->user_type == 4)
 <div class="container-fluid">
@@ -210,11 +227,11 @@
         </div>
         </div>  
         @endif  
-        <div class="append-view-appointment"></div> 
+        <div class="append-status"></div>         
 @endsection
 
 @section('script')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
         <script>
             
@@ -381,11 +398,18 @@
                     this.submit()
                 }
             });
-            $('.btn-view-appoinment').click(function(){
-                // var div = $('.append-view-appointment');
-                
-                $('#viewAppointment').modal('show');
-               
+            $('.btn-update-status').click(function(){
+                var div = $('.append-status');
+                div.empty();
+                var url = $(this).data('url');
+            
+                $.ajax({
+                    url: url,
+                    success:function(data){
+                        div.append(data);
+                        $('#update_status-app').modal('show');
+                    }
+                });
             });
            
             

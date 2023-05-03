@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth']],function() {
             Route::resource('users','UsersController');   
             Route::resource('news','NewsController'); 
             Route::resource('students','StudentController'); 
-           
+            Route::resource('appointments','AppointmentController');
             Route::resource('events','EventController'); 
             Route::resource('announcements','AnnouncementController'); 
             Route::post('/storeStudent','UsersController@storeStudent'); 
@@ -93,10 +93,10 @@ Route::group(['middleware' => ['auth']],function() {
         });
     });
     
-    Route::group(['middleware' => ['role:guidance|admin']],function() { 
+    Route::group(['middleware' => ['role:guidance|admin|student']],function() { 
 
-        Route::group(['middleware' => ['role:guidance|admin']],function() {  
-           
+        Route::group(['middleware' => ['role:guidance|admin|student']],function() {  
+            Route::resource('appointments','AppointmentController');
             Route::resource('holidays','HolidayController'); 
             // Route::get('/datepicker',[App\Http\Controllers\AppointmentController::class, 'datepicker'])->name('datepicker');
             // Route::post('/set-appointment',[App\Http\Controllers\AppointmentController::class, 'setAppointment'])->name('set-appointment');    

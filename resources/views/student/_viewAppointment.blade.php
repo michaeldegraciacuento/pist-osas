@@ -12,8 +12,8 @@
         <table class="table table-responsive-sm table-striped">
                         <thead>
                           <tr>
-                            <th  width="8%">Content</th>
-                            <th>Date</th>
+                            <th>Nature of Appointment</th>
+                            <th width="20%">Date</th>
                             <th width="10%">Status</th>
                            
                             
@@ -22,12 +22,12 @@
                         <tbody>
                         @foreach($appointment_all as $std)
                             <tr>
-                              <td>{{ $std->purpose }}</td>
+                              <td>{{ strtoupper($std->purpose) }}</td>
                               <td>{{ $std->date }}</td>
-                              @if($std->status == 'not-cleared')
-                              <td>Pending</td>
+                              @if($std->status == 'Pending')
+                              <td><span class="badge badge-warning">Pending</span></td>
                               @else
-                              <td>Approve</td>
+                              <td><span class="badge badge-success">Approve</span></td>
                               @endif
                             </tr>
                           @endforeach

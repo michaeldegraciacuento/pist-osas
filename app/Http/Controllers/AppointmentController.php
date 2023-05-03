@@ -48,7 +48,7 @@ class AppointmentController extends Controller
         $data->user_id = Auth::id();
         $data->date = date('Y-m-d',strtotime($request->date));
         $data->time = $request->time;
-        $data->status = 'not-cleared';  
+        $data->status = 'Pending';  
         $data->count = 1;
         $data->purpose = $request->purpose;
         // return $data;
@@ -76,7 +76,8 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        //
+        
+        return view('appointment._status',compact('appointment'));
     }
 
     /**
@@ -88,7 +89,10 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+        $appointment->status = $request->status;
+        
+        $appointment->update();
+        return redirect()->back()->with('success','Successfully Updated Status!');
     }
 
     /**
@@ -112,7 +116,7 @@ class AppointmentController extends Controller
 
         $data->date = date('Y-m-d',strtotime($request->date));
         $data->time = $request->time;
-        $data->status = 'not-cleared';
+        $data->status = 'Pending';
         $data->count = 1;
         $data->purpose = $request->purpose;
         $data->save();
