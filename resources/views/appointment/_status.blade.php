@@ -16,6 +16,7 @@
                       <option value="{{$appointment->status}}">{{$appointment->status}}</option>
                       <option value="Approved">Approved</option>
                       <option value="Pending">Pending</option>
+                      <input type="hidden" name="user_id" value="{{$appointment->user_id}}">
                     </select>
                 </div> 
             </div>

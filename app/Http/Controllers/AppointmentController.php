@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\{Appointment, Holiday};
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 class AppointmentController extends Controller
 {
@@ -76,7 +80,7 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        
+      
         return view('appointment._status',compact('appointment'));
     }
 
@@ -89,9 +93,13 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
+        $user_email = DB::table('users')->where('id',$request->user_id)->first();
+        // return $user_email;
         $appointment->status = $request->status;
-        
         $appointment->update();
+
+        Mail::to($user_email)->send(new SendEmail($appointment, $user_email));
+        
         return redirect()->back()->with('success','Successfully Updated Status!');
     }
 
