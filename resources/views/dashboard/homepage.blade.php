@@ -1,7 +1,8 @@
 @extends('dashboard.base')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 @section('content')
-
+@include('student._viewAppointment')
 @if(auth()->user()->user_type == 1)
 <div class="container-fluid row">
     <div class="col-6 col-lg-3">
@@ -82,69 +83,314 @@
     </div>
 </div>
 @endif
-
-@if(auth()->user()->user_type == 4)
-<div class="container-fluid row">
-    <div class="col-sm-12 col-xl-6">
-    <div class="card">
-    <div class="card-header"> NEWS<small> Posting</small></div>
-    <div class="card-body">
-        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926c%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926c%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.9296875%22%20y%3D%22217.75625%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926e%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926e%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22217.75625%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926f%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926f%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277.0078125%22%20y%3D%22217.75625%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-        </div><a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+@if(auth()->user()->user_type == 3)
+<div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="row">
+              <div class="col-sm-12 col-xl-8">
+                <div class="card">
+                    <div class="card-header d-flex">
+                      <h4><i class="fa fa-align-justify"></i>  {{ __('Appointment Management') }}</h4>
+                    </div>
+                    <div class="card-header">
+                    <form action="">
+                      <label for="">Search Function:</label>
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" name="lname" class="form-control" placeholder="Type Last Name to search..." value="">
+                            </div>
+                            <div class="col-4">
+                                <input type="text" name="uli" class="form-control" placeholder="Type ID Number to search..." value="">
+                            </div>
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-sm btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>  
+                    <div class="card-body">
+                        <table class="table table-responsive-sm table-striped">
+                        <thead>
+                          <tr>
+                            <th  width="8%">Image</th>
+                            <th>Fullname</th>
+                            <th>ID Number</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th width="5%"></th>
+                            <th width="5%"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                       
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-12 col-xl-6">
-    <div class="card">
-    <div class="card-header"> Announcements<small> Posting</small></div>
-    <div class="card-body">
-        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926c%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926c%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.9296875%22%20y%3D%22217.75625%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926e%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926e%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22217.75625%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926f%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926f%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277.0078125%22%20y%3D%22217.75625%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-        </div><a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
-        </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-12 col-xl-6">
-    <div class="card">
-    <div class="card-header"> Activities<small> Posting</small></div>
-    <div class="card-body">
-        <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=777&amp;fg=555&amp;text=First slide" alt="First slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926c%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926c%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.9296875%22%20y%3D%22217.75625%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=666&amp;fg=444&amp;text=Second slide" alt="Second slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926e%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926e%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22217.75625%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-            <div class="carousel-item"><img class="d-block w-100" data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide" alt="Third slide [800x400]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_160549c926f%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_160549c926f%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277.0078125%22%20y%3D%22217.75625%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true"></div>
-        </div><a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="sr-only">Next</span></a>
-        </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-sm-12 col-xl-6">
-    <div class="card">
-    <div class="card-header"> Guidance Appoinment<small> Booking</small></div>
-    <div class="card-body">
-       On-progress......
-    </div>
-    </div>
-    </div>
-    
-</div>
-
-
 @endif
+@if(auth()->user()->user_type == 4)
+<div class="container-fluid">
+    <div class="col-sm-12 col-xl-8">
+          <div class="animated fadeIn">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex">
+                      <h4><i class="fa fa-align-justify"></i>  {{ __('Appointment Management') }}</h4>
+                      
+                    </div>
+                    <div class="card-header">
+                        <div class="row">
+                        <div class="col-6">
+                            <h>PLEASE SELECT DATE APPOINTMENT !!!</h4>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button class="btn btn-sm btn-primary " data-toggle="modal" data-target="#exampleModal">View Appoinment Status</button>
+                        </div>
+                        </div>
+                    </div>  
+                    <div class="card-body">
+                    <div class="row">
+            <div class="col-sm-4">
+                <div id="datepicker"></div>
+                
+            </div>
+            <div class="col-sm-5">
+                <div id="first-step-available" style="display:none;">
+                    <form action="{{ route('appointments.store') }}" method="post">
+                    @csrf
+                         <h3> <h3 id="date-String"></h3> Available Slots: <span id="available_slots"></span></h3>
+                       <br> 
+                       <div id="app-div">
+                       <label>Select Time:</label>
+                        <select name="time" class="form-control" required id="select-time">
+                            <option disabled selected value="">-- Select Time --</option>
+                            <option value="am" id="am" disabled>AM - 8:00am to 12:00pm</option>
+                            <option value="pm" id="pm" disabled>PM - 1:00pm to 5:00pm</option>
+                        </select>
+                        <label class="mt-2">What is the nature of your Appointment?</label>
+                        <textarea class="mt-2 text-uppercase text-center" style="line-height: 5;display: inline-block;vertical-align: middle;" name="purpose" id="" cols="70" rows="2" required></textarea>
+                        
+                        <div class="d-flex mt-2">
+                            <input type="hidden" class="form-control text-center" name="date" id="date-value">
+                        </div>
+                        <button class="btn btn-primary mt-2" type="submit" style="">Schedule Now</button>
+                       </div>
+                       <style>
+                        .dsp-block{
+                            display:block;
+                        }
+                        .dsp-none{
+                            display:none;
+                        }
+                       </style>
+                       <div class="app-div-show dsp-none mt-2">
+                       <div class="alert alert-danger text-center">
+                        <strong>
+                            NO AVAILABLE APPOINTMENT FOR THIS DATE!
+                            <br>
+                            Please choose a different date
+                        </strong>
+                    </div>
+                       </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>  
+        @endif  
+        <div class="append-view-appointment"></div> 
 @endsection
 
-@section('javascript')
+@section('script')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+        <script>
+            
+            $('#open_modal').click(function(e) {
+                alert('Please visit your zone president to clear your zone liabilities!')
+            })
+            $( function() {
+                $( "#datepicker").datepicker({
+                    minDate: 0,
+                    maxDate: 31,
+                    beforeShowDay: disableHoliday
+                });
+            });
+            var holidays = [];
+            function holidayConverter() {
+                let holiday_dates = {!! json_encode($holidays, JSON_HEX_TAG) !!}; 
+                var myObject = { 'a': 1, 'b': 2, 'c': 3 };
 
-    <script src="{{ asset('js/Chart.min.js') }}"></script>
-    <script src="{{ asset('js/coreui-chartjs.bundle.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
+                Object.keys(holiday_dates).map(function(key, index) {
+                    holidays.push(holiday_dates[key].date);
+                });
+            }
+            holidayConverter();
+            function disableHoliday(date) {
+                var string = $.datepicker.formatDate('yy-mm-dd', date);
+                    
+                var filterDate = new Date(string);
+                var day = filterDate.getDay();
+                var isHoliday = ($.inArray(string, holidays) != -1);
+                
+                return [day != 0 && day !=6 && !isHoliday]
+            }
+            $('#datepicker').change(function(e) {
+                var val = $(this).val()
+                $('#date-value').val(val)
+                $('#select-time').val('')
+                $('#time-value').val('')
+                $('#select-document-type').val('')
+                $('#document-type-value').val('')
+                $('.app-div-show').addClass('dsp-none');
+                $('#overlay').show();
+                $('#first-step-available').hide();
+                $('#first-step-not-available').hide();
+                $('#final-step-available').hide()
+                $('#warning-message-container').hide()
+                $('#am').attr('disabled', true); 
+                $('#pm').attr('disabled', true); 
+
+                var dateConvert = $('#date-value').val();
+                const dateString = dateConvert;
+                const dateParts = dateString.split('/');
+
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                const monthIndex = parseInt(dateParts[0]) - 1;
+                const day = parseInt(dateParts[1]);
+                const year = parseInt(dateParts[2]);
+
+                const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
+                
+                $('#date-String').html(formattedDate);
+
+                
+
+
+
+
+                $.ajax({
+                    // "_token": "{{ csrf_token() }}",
+                    type: 'get',
+                    url: '/datepicker',
+                    data: {'data': val},
+                    success: function (result) {
+                        console.log(result);
+                        $('#overlay').hide();
+                        
+
+                            
+                                if(result.available_slots == 0){
+                                    $('#app-div').hide();
+                                    $('.app-div-show').removeClass('dsp-none');
+                                    $('.app-div-show').addClass('dsp-block');
+                                }
+                                else{
+                                    $('#app-div').show();
+                                    $('.app-div-show').addClass('dsp-none');
+                                }
+                           
+
+                            
+                        
+                        if (result.first_step) {
+                            $('#first-step-available').show();
+                            $('#available_slots').html(result.available_slots);
+                        } else {
+                            $('#first-step-not-available').show();
+                        }
+
+                        if (result.am) {
+                            $('#am').attr('disabled', false); 
+                        }
+
+                        if (result.pm) {
+                            $('#pm').attr('disabled', false); 
+                        }
+                    }
+                })
+            })
+
+            $('#next-step-form').submit(function(e) {
+                e.preventDefault()
+                $('#overlay').show()
+                $('#final-step-available').hide()
+                $('#final-step-not-available').hide()
+                $('#warning-message-container').hide()
+                $('#error-message').html('')
+                $('#zone-name').val('')
+                $('#age').val('')
+                $('#resident-id-value').val('')
+                $('#appointment-id-value').val('')
+                
+                var last_name = $('#last_name').val()
+                var first_name = $('#first_name').val()
+                var middle_name = $('#middle_name').val()
+                var document_type = $('#select-document-type').val()
+                var date = $('#date-value').val()
+                
+                $.ajax({
+                    // "_token": "{{ csrf_token() }}",
+                    type: 'get',
+                    url: '/resident-check',
+                    data: {'last_name': last_name, 'first_name': first_name, 'middle_name': middle_name, 'date': date, 'document_type': document_type},
+                    success: function (result) {
+                        $('#overlay').hide();
+                        if (result.error_message !== null) {
+                            $('#final-step-not-available').show()
+                            $('#error-message').html(result.error_message)
+                        } else {
+                            $('#final-step-available').show();
+                            $('#zone-name').val(result.resident.zone.name)
+                            $('#age').val(result.resident.age)
+                            $('#resident-id-value').val(result.resident.id)
+                            $('#appointment-id-value').val(result.appointment.id)
+                        }
+
+                        if (result.warning_message !== null) {
+                            $('#warning-message-container').show()
+                            $('#warning-message').html(result.warning_message)
+                        }
+                    }
+                })
+            })
+
+            $('#select-time').change(function(e) {
+                $('#time-value').val($(this).val())
+            })
+            $('#select-document-type').change(function(e) {
+                $('#document-type-value').val($(this).val())
+            })
+
+            $('#appointment-form').submit(function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to set this appointment?') == true) {
+                    this.submit()
+                }
+            });
+            $('.btn-view-appoinment').click(function(){
+                // var div = $('.append-view-appointment');
+                
+                $('#viewAppointment').modal('show');
+               
+            });
+           
+            
+
+        </script>
+
 @endsection
+

@@ -14,38 +14,41 @@
                       
                     </div>
                     <div class="card-header">
-                        <p>PLEASE SELECT DATE APPOINTMENT !!!</p>
+                        <div class="row">
+                        <div class="col-4">
+                            <h>PLEASE SELECT DATE APPOINTMENT !!!</h4>
+                        </div>
+                        <div class="col-8 text-right">
+                            <button class="btn btn-sm btn-primary">View Appoinment Status</button>
+                        </div>
+                        </div>
                     </div>  
                     <div class="card-body">
                     <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div id="datepicker"></div>
+                
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <div id="first-step-available" style="display:none;">
-                    <form id="next-step-form">
-                        <h3>Available Slots: <span id="available_slots"></span></h3>
-                        <label>Time:</label>
+                    <form action="{{ route('appointments.store') }}" method="post">
+                    @csrf
+                         <h3> <h3 id="date-String"></h3> Available Slots: <span id="available_slots"></span></h3>
+                       <br> <label>Select Time:</label>
                         <select name="time" class="form-control" required id="select-time">
                             <option disabled selected value="">-- Select Time --</option>
                             <option value="am" id="am" disabled>AM - 8:00am to 12:00pm</option>
                             <option value="pm" id="pm" disabled>PM - 1:00pm to 5:00pm</option>
                         </select>
-                        <label class="mt-2">Document Type:</label>
-                        <select name="document_type" class="form-control" required id="select-document-type">
-                            <option disabled selected value="">-- Select Type --</option>
-                            <option value="brgy_cert">Barangay Certificate</option>
-                            <option value="indigency">Certificate of Indigency</option>
-                        </select>
-                        <label class="mt-2">Input Name:</label>
-                        <div class="d-flex">
-                            <input type="text" class="form-control" name="last_name" placeholder="Family Name" required id="last_name">
-                            <input type="text" class="form-control" name="first_name" placeholder="Given Name" required id="first_name">
-                            <input type="text" class="form-control" name="middle_name" placeholder="Middle Name" id="middle_name">
+                        <label class="mt-2">What is the nature of your Appointment?</label>
+                        <textarea class="mt-2 text-uppercase text-center" style="line-height: 5;display: inline-block;vertical-align: middle;" name="purpose" id="" cols="70" rows="2" required></textarea>
+                        
+                        <div class="d-flex mt-2">
+                            <input type="hidden" class="form-control text-center" name="date" id="date-value">
                         </div>
-                        <button class="btn btn-primary mt-2" id="next-step-btn" type="submit">Validate Name</button>
+                        <button class="btn btn-primary mt-2" type="submit" style="float: right;">Schedule Now</button>
                     </form>
-                </div>
+                </div>  
                 <div id="first-step-not-available" style="display:none;">
                     <div class="alert alert-danger text-center">
                         <strong>
@@ -162,12 +165,26 @@
                 $('#am').attr('disabled', true); 
                 $('#pm').attr('disabled', true); 
 
+                var dateConvert = $('#date-value').val();
+                const dateString = dateConvert;
+                const dateParts = dateString.split('/');
+
+                const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+                const monthIndex = parseInt(dateParts[0]) - 1;
+                const day = parseInt(dateParts[1]);
+                const year = parseInt(dateParts[2]);
+
+                const formattedDate = `${monthNames[monthIndex]} ${day}, ${year}`;
+                
+                $('#date-String').html(formattedDate);
                 $.ajax({
                     // "_token": "{{ csrf_token() }}",
                     type: 'get',
                     url: '/datepicker',
                     data: {'data': val},
                     success: function (result) {
+                        console.log(result);
                         $('#overlay').hide();
                         if (result.first_step) {
                             $('#first-step-available').show();
@@ -243,7 +260,11 @@
                 if (confirm('Are you sure you want to set this appointment?') == true) {
                     this.submit()
                 }
-            })
+            });
+
+
+            
+
         </script>
 @endsection
 

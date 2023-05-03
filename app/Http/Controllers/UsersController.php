@@ -15,6 +15,7 @@ class UsersController extends Controller
 {
     public function index()
     {
+       
         $you = auth()->user();
         $users = User::where('id','!=',1)->where('user_type','!=',4)->get();
         $roles = DB::table('roles')->where('id','!=',1)->where('id','!=',2)->get();
@@ -140,6 +141,8 @@ class UsersController extends Controller
         $student->province=$request->province;
         $student->region=$request->region;
         $student->gender=$request->gender;
+        $student->year=$request->year;
+        $student->course=$request->course;
         if( $request->file('image') != null){
             $picture = $request->file('image');
             $fileName = time() . '.' . $picture->getClientOriginalExtension();
@@ -149,8 +152,15 @@ class UsersController extends Controller
             $student->image = $url; 
         }
         $student->save();
-
-        $student->assignRole('student');
+       // $user->assignRole($request->role);
+        $student->assignRole($request->role);
         return redirect()->back()->with('success','Successfully Stored Data!!');
+    }
+    public function viewAppointment(Request $request, $id)
+    {
+        //$userId = Auth::id();
+        $appointment_all = Appointment::where('user_id','=',$id)->orderBy('date', 'DESC')->get();
+
+        return view('student._viewAppointment',compact('appointment_all'));
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\{Appointment, Holiday};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -36,7 +38,23 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // if ($request->appointment_id) {
+        //     $data = Appointment::find($request->appointment_id);
+        // } else {
+        //     $data = new Appointment;
+        //     $data->user_id = $request->user_id;
+        // }
+        $data = new Appointment;
+        $data->user_id = Auth::id();
+        $data->date = date('Y-m-d',strtotime($request->date));
+        $data->time = $request->time;
+        $data->status = 'not-cleared';  
+        $data->count = 1;
+        $data->purpose = $request->purpose;
+        // return $data;
+        // exit();
+        $data->save();
+        return redirect()->back()->with('success','Booking Successfully Stored!!');
     }
 
     /**
@@ -99,7 +117,8 @@ class AppointmentController extends Controller
         $data->purpose = $request->purpose;
         $data->save();
 
-        return redirect('/congrats')->with('message',date('M d,Y',strtotime($data->date)));
+        return redirect()->back()->with('success','Booking Successfully Stored!!');
+       // return redirect('/congrats')->with('message',date('M d,Y',strtotime($data->date)));
     }
     public function datepicker(Request $request)
     {
@@ -113,7 +132,7 @@ class AppointmentController extends Controller
 
         return response()->json([
             'first_step' => $first_step[0],
-            'available_slots' => 30 - $first_step[1],
+            'available_slots' => 10 - $first_step[1],
             'am' => $am,
             'pm' => $pm
         ]);

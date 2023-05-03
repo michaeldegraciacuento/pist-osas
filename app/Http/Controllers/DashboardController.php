@@ -3,17 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Appointment, User, Event};
+use App\Models\{Appointment, User, Event, Holiday};
+use Illuminate\Support\Facades\Auth;
+
 class DashboardController extends Controller
 {
     public function index(Request $request)
     {
+        
+        $userId = Auth::id();
+        $appointment_all = Appointment::where('user_id','=',$userId)->orderBy('date', 'DESC')->get();
+
+        $user = User::where('user_type', '<>', 4)->count();
+        $holidays = Holiday::select('date')->get();
         $appointment = Appointment::count();
         $event = Event::count();
         $student = User::where('user_type',4)->count();
         $user = User::where('user_type', '<>', 4)->count();
 
-        return view('dashboard.homepage',compact('appointment','student','user','event'));
+        return view('dashboard.homepage',compact('appointment','student','user','event','holidays','appointment_all'));
     }
     public function newsPost(Request $request)
     {

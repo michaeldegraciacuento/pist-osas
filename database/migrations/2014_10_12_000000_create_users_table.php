@@ -36,6 +36,8 @@ class CreateUsersTable extends Migration
             $table->string('province')->nullable();
             $table->string('region')->nullable();
             $table->string('gender')->nullable();
+            $table->string('year')->nullable();
+            $table->string('course')->nullable();
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();

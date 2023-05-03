@@ -24,12 +24,7 @@
     </a>
   </li>
 
-  <li class="c-sidebar-nav-item">
-    <a class="c-sidebar-nav-link" href="{{route('appointments.index')}}">
-    <i class="cil-calendar c-sidebar-nav-icon"></i>
-      Appointment
-    </a>
-  </li>
+ 
   <li class="c-sidebar-nav-item">
     <a class="c-sidebar-nav-link" href="{{route('holidays.index')}}">
     <i class="cil-calendar-check c-sidebar-nav-icon"></i>
@@ -48,7 +43,24 @@
       Announcement
     </a>
   </li>
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{route('appointments.index')}}">
+    <i class="cil-calendar c-sidebar-nav-icon"></i>
+      Appointment
+    </a>
+  </li>
   @endrole
+
+  @role('guidance')
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{route('holidays.index')}}">
+    <i class="cil-calendar-check c-sidebar-nav-icon"></i>
+      Holiday
+    </a>
+  </li>
+  @endrole
+  
+  
   
 
   

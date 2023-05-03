@@ -15,14 +15,19 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->date('date');
             $table->string('time');
             $table->string('status');
             $table->integer('count');
-            $table->integer('user_id');
-            $table->string('purpose');
+            $table->longText('purpose');
             $table->date('date_issued')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 

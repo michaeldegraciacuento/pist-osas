@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth']],function() {
             Route::resource('users','UsersController');   
             Route::resource('news','NewsController'); 
             Route::resource('students','StudentController'); 
-            Route::resource('holidays','HolidayController'); 
+           
             Route::resource('events','EventController'); 
             Route::resource('announcements','AnnouncementController'); 
             Route::post('/storeStudent','UsersController@storeStudent'); 
@@ -84,10 +84,25 @@ Route::group(['middleware' => ['auth']],function() {
 
         Route::group(['middleware' => ['role:student|admin']],function() {  
             Route::resource('appointments','AppointmentController');
-            Route::post('/storeStudent','UsersController@storeStudent'); 
-            Route::get('/updateStudent','UsersController@storeStudent');    
-            Route::get('/datepicker',[AppointmentController::class, 'datepicker'])->name('datepicker');
-            Route::post('/set-appointment',[AppointmentController::class, 'setAppointment'])->name('set-appointment');    
+            Route::get('/viewAppointment/{id}','UsersController@viewAppointment'); 
+            Route::get('/datepicker',[App\Http\Controllers\AppointmentController::class, 'datepicker'])->name('datepicker');
+            Route::post('/set-appointment',[App\Http\Controllers\AppointmentController::class, 'setAppointment'])->name('set-appointment');    
+            // Route::post('/storeStudent','UsersController@storeStudent'); 
+            // Route::get('/updateStudent','UsersController@storeStudent');
+            
         });
-    });    
+    });
+    
+    Route::group(['middleware' => ['role:guidance|admin']],function() { 
+
+        Route::group(['middleware' => ['role:guidance|admin']],function() {  
+           
+            Route::resource('holidays','HolidayController'); 
+            // Route::get('/datepicker',[App\Http\Controllers\AppointmentController::class, 'datepicker'])->name('datepicker');
+            // Route::post('/set-appointment',[App\Http\Controllers\AppointmentController::class, 'setAppointment'])->name('set-appointment');    
+            // Route::post('/storeStudent','UsersController@storeStudent'); 
+            // Route::get('/updateStudent','UsersController@storeStudent');
+            
+        });
+    });  
 });

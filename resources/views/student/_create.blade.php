@@ -33,6 +33,17 @@
                 <div class="col-6">
                     <label for="">ID #:</label>
                     <input type="number" name="uli" class="form-control uli text-center" required>
+                    <input type="hidden" name="role" class="form-control mb-3 text-center text-uppercase" value="student">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Year:</label>
+                    <input type="text" name="year" class="form-control mb-1 text-center text-uppercase" required>
+                </div>
+                <div class="col-6">
+                    <label for="">Course:</label>
+                    <input type="text" name="course" class="form-control mb-1 text-center text-uppercase" required>
                 </div>
             </div>
             <div class="row">
