@@ -21,7 +21,7 @@ class UsersController extends Controller
         $roles = DB::table('roles')->where('id','!=',1)->where('id','!=',2)->get();
         return view('dashboard.admin.usersList', compact('users', 'you', 'roles'));
     }
-
+   
     public function store(Request $request)
     {
         $validatedData = $request->validate([

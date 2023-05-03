@@ -12,6 +12,9 @@ Route::get('/', function () {
     $event = Event::take(1)->get();
     return view('welcome',compact('news','announcement','event'));
 });
+
+
+
 Route::get('/services','DashboardController@services')->name('frontend.services');
 Route::get('/news-post','DashboardController@newsPost')->name('frontend.newsPost');
 Route::get('/event-post','DashboardController@eventPost')->name('frontend.eventPost');
