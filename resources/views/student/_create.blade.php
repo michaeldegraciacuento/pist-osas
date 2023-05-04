@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-6">
                     <label for="">ID #:</label>
-                    <input type="number" name="uli" class="form-control uli text-center" required>
+                    <input type="text" name="uli" class="form-control uli text-center" required>
                     <input type="hidden" name="role" class="form-control mb-3 text-center text-uppercase" value="student">
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-6">
                     <label for="">Age:</label>
-                    <input type="text" name="age" class="form-control mb-1 text-center text-uppercase age" required disabled>
+                    <input type="text" name="age" class="form-control mb-1 text-center text-uppercase age" required>
                     <label for="">Gender</label>
                     <input type="text" name="gender" class="form-control mb-1 text-center text-uppercase" required>
                 </div>

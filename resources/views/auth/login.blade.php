@@ -8,7 +8,7 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <h1 class="text-center">OSAS | System</h1>
+                <h1 class="text-center">OSAS | PORTAL</h1>
                 <hr>
                 <p class="text-muted text-center">Sign In to your account</p>
                 <form method="POST" action="{{ route('login') }}">
@@ -39,7 +39,7 @@
                     </div>
                     </form>
                     <div class="col-6 text-right">
-                        <a href="{{ route('password.request') }}" class="btn btn-link px-0">{{ __('Forgot Your Password?') }}</a>
+                        <a class="btn btn-link px-0">{{ __('Welcome to the OSAS Portal!') }}</a>
                     </div>
                     </div>
               </div>

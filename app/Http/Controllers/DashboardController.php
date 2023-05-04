@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Appointment, User, Event, Holiday};
+use App\Models\{Appointment, User, Event, Holiday, News, };
 use Illuminate\Support\Facades\Auth;
-
+use DB;
 class DashboardController extends Controller
 {
     public function index(Request $request)
@@ -27,6 +27,18 @@ class DashboardController extends Controller
         }
         $list_appointment = $list_appointment->paginate(50);
         $list_appointment = $list_appointment->appends($request->except('page'));
+         $latestPostNews = DB::table('news')
+        ->latest('created_at')
+        ->first();
+        $latestPostEvents = DB::table('events')
+        ->latest('created_at')
+        ->first();
+        $latestPostAnnouncements = DB::table('announcements')
+        ->latest('created_at')
+        ->first();
+        $latestPostHolidays = DB::table('holidays')
+        ->latest('created_at')
+        ->first();
 
 
         $user = User::where('user_type', '<>', 4)->count();
@@ -36,23 +48,33 @@ class DashboardController extends Controller
         $student = User::where('user_type',4)->count();
         $user = User::where('user_type', '<>', 4)->count();
 
-        return view('dashboard.homepage',compact('appointment','student','user','event','holidays','appointment_all', 'list_appointment'));
+        return view('dashboard.homepage',compact('appointment','student','user','event','holidays','appointment_all', 'list_appointment','latestPostNews','latestPostEvents','latestPostAnnouncements','latestPostHolidays'));
 
     }
     public function newsPost(Request $request)
     {
-        return view('frontend.newsPost');
+        $newsPost = DB::table('news')->get();
+        return view('frontend.newsPost', compact('newsPost'));
     }
     public function eventPost(Request $request)
     {
-        return view('frontend.eventPost');
+        $eventPost = DB::table('events')->get();
+        return view('frontend.eventPost',compact('eventPost'));
     }
 
     public function announcementPost(Request $request)
     {
-        return view('frontend.announcementPost');
+        $announcementPost = DB::table('announcements')->get();
+        return view('frontend.announcementPost', compact('announcementPost'));
     }
-
+    public function contactUs(Request $request)
+    {
+        return view('frontend.contactUs');
+    }
+    public function aboutUs(Request $request)
+    {
+        return view('frontend.aboutUs');
+    }
     public function services(Request $request)
     {
         return view('frontend.services');

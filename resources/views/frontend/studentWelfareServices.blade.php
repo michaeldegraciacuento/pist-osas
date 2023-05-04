@@ -26,7 +26,17 @@
                 <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
-      <a class="btn btn-outline-primary me-2" href="{url('/login')}}">Log In</a>
+      @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                    <a class="btn btn-outline-primary w-100 mb-2" href="{{url('/dashboard')}}">Home</a>
+                    @else
+                    <a class="btn btn-outline-primary w-100 mb-2" href="{{url('/login')}}">Log in</a>
+
+                       
+                    @endauth
+                </div>
+            @endif
       </div>
             </div>
           </nav>
@@ -109,10 +119,10 @@
             </div>
             <div class="col-12 col-lg-9 d-flex justify-content-center justify-content-lg-end">
               <ul class="d-flex list-unstyled flex-wrap">
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">Home</a></li>
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">About Us</a></li>
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">Contact Us</a></li>
-                <li><a class="text-decoration-none text-dark fs-5 fw-bold" href="#">Services</a></li>
+              <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/')}}">Home</a></li>
+                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/about-us')}}">About Us</a></li>
+                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li><a class="text-decoration-none text-dark fs-5 fw-bold" href="{{url('/services')}}">Services</a></li>
               </ul>
             </div>
           </div>

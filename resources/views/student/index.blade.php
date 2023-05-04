@@ -55,12 +55,14 @@
                                 <a href="" class="btn btn-block btn-primary"><i class="fa fa-eye"></i></a>
                               </td> -->
                               <td>
-                                <button class="btn btn-block btn-primary btn-update" ><i class="cil-pencil"></i></button>
+                                <button class="btn btn-block btn-primary btn-update" data-url="{{ URL::to('/updateStudent',$std->id) }}" ><i class="cil-pencil"></i></button>
                               </td>
                               <td>
-                              
+                              <!-- <form action="{{ URL::to('/destroyStudent',$std->id) }}" method="post" >
+                                @csrf
+                                @method('DELETE')
                                     <button class="btn btn-block btn-danger"><i class="cil-trash"></i></button>
-                              
+                              </form>  -->
                               </td>
                             </tr>
                           @endforeach
@@ -73,13 +75,26 @@
           </div>
         </div>
         <div class="append-student"></div>
+        
 @endsection
 
+
 @section('script')
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script type="text/javascript">
         
     $('document').ready(function () {
+      $('.btn-update').click(function(){
+            var div = $('.append-student');
+            div.empty();
+            var url = $(this).data('url');
+            $.ajax({
+                url: url,
+                success:function(data){
+                    div.append(data);
+                    $('#updateStudent').modal('show');
+                }
+            });
+        });
         $("#image").change(function () {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();

@@ -18,10 +18,27 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request){
+            $request->all();
+        }
+
         $holidays = Holiday::select('date')->get();
-        return view ('appointment.index',compact('holidays'));
+        $list_appointment = Appointment::join('users','users.id','appointments.user_id')
+        ->select('appointments.id as appointments_id','appointments.date','appointments.status' ,'users.*')
+        ->latest();
+
+        if($request->lname){
+            $list_appointment = $list_appointment->where('lname', 'LIKE' ,'%'.$request->lname .'%');
+        }
+        if($request->uli){
+            $list_appointment = $list_appointment->where('uli', 'LIKE' ,'%'.$request->uli .'%');
+        }
+        $list_appointment = $list_appointment->paginate(50);
+        $list_appointment = $list_appointment->appends($request->except('page'));
+        
+        return view ('appointment.index',compact('holidays', 'list_appointment'));
     }
 
     /**
@@ -51,7 +68,11 @@ class AppointmentController extends Controller
         $data = new Appointment;
         $data->user_id = Auth::id();
         $data->date = date('Y-m-d',strtotime($request->date));
-        $data->time = $request->time;
+        if($request->time == 'am'){
+            $data->time = 'AM - 8:00am to 12:00pm';
+        }else{
+            $data->time = 'PM - 1:00pm to 5:00pm';
+        }
         $data->status = 'Pending';  
         $data->count = 1;
         $data->purpose = $request->purpose;
@@ -69,7 +90,10 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment)
     {
-        //
+
+        
+
+        return view('appointment._view',compact('appointment'));
     }
 
     /**
@@ -98,9 +122,18 @@ class AppointmentController extends Controller
         $appointment->status = $request->status;
         $appointment->update();
 
+       if($request->status == 'Approved')
+       {
         Mail::to($user_email)->send(new SendEmail($appointment, $user_email));
-        
+        return redirect()->back()->with('success','Successfully Updated Status! Email Verification Sent!');
+       }
+       else
+       {
         return redirect()->back()->with('success','Successfully Updated Status!');
+       }
+
+        
+       
     }
 
     /**

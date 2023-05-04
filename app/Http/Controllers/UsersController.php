@@ -126,7 +126,7 @@ class UsersController extends Controller
         $student->mname=$request->mname;
         $student->lname=$request->lname;
         $student->ename=$request->ename;
-        $student->birthday=$request->ename;
+        $student->birthday=$request->birthday;
         $student->user_type=$request->user_type;
         $student->birthplace=$request->birthplace;
         $student->age=$request->age;
@@ -162,5 +162,53 @@ class UsersController extends Controller
         $appointment_all = Appointment::where('user_id','=',$id)->orderBy('date', 'DESC')->get();
 
         return view('student._viewAppointment',compact('appointment_all'));
+    }
+    public function updateStudent(Request $request, $id)
+    {
+        $student = User::where('id','=',$id)->first();
+        return view('student._update',compact('student'));
+    }
+    public function editStudent(Request $request, $id)
+    {
+        $student = User::where('id', $id)->first();
+        $student->uli=$request->uli;
+        $student->fname=$request->fname;
+        $student->mname=$request->mname;
+        $student->lname=$request->lname;
+        $student->ename=$request->ename;
+        $student->birthday=$request->birthday;
+        $student->user_type=$request->user_type;
+        $student->birthplace=$request->birthplace;
+        $student->age=$request->age;
+        $student->contact_number=$request->contact_number;
+        $student->email=$request->email;
+        $student->parent_name=$request->parent_name;
+        $student->parent_contact=$request->parent_contact;
+        $student->purok=$request->purok;
+        $student->barangay=$request->barangay;
+        $student->city=$request->city;
+        $student->province=$request->province;
+        $student->region=$request->region;
+        $student->gender=$request->gender;
+        $student->year=$request->year;
+        $student->course=$request->course;
+        if( $request->file('image') != null){
+            $picture = $request->file('image');
+            $fileName = time() . '.' . $picture->getClientOriginalExtension();
+            $img = Image::make($picture->getRealPath());
+            $img->stream();
+            $url = Storage::disk('public')->put('uploads/students', $picture);
+            $student->image = $url; 
+        }
+        $student->update();
+        return redirect()->back()->with('success','Successfully Updated Data!!');
+    }
+    public function destroyStudent($id)
+    {
+        $user = User::where('id',$id)->first();
+        
+        $user->delete();
+    
+        return redirect()->route('student.index')->with('success','Successfully Deleted Data!');
     }
 }

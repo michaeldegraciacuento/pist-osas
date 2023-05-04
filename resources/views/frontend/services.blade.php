@@ -146,19 +146,7 @@
             </div>
             <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
               <div class="row justify-content-center justify-content-lg-end">
-                <div class="col-12 col-md-6 col-lg-8 mb-3 mb-md-0">
-                  <div class="input-group">
-                    <span class="input-group-text px-3 bg-light rounded-left">
-                      <svg width="24" height="24" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
-                    </span>
-                    <input class="form-control" type="text" placeholder="Type your e-mail">
-                  </div>
-                </div>
-                <div class="col-12 col-md-auto">
-                  <button class="w-100 btn btn-light" type="submit">Sign Up</button>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -177,10 +165,10 @@
             </div>
             <div class="col-12 col-lg-9 d-flex justify-content-center justify-content-lg-end">
               <ul class="d-flex list-unstyled flex-wrap">
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">Home</a></li>
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">About Us</a></li>
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="#">Contact Us</a></li>
-                <li><a class="text-decoration-none text-dark fs-5 fw-bold" href="#">Services</a></li>
+                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/')}}">Home</a></li>
+                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/about-us')}}">About Us</a></li>
+                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li><a class="text-decoration-none text-dark fs-5 fw-bold" href="{{url('/services')}}">Services</a></li>
               </ul>
             </div>
           </div>

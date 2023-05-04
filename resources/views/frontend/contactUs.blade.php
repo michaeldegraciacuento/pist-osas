@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+              <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
                 <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
                 <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
@@ -83,35 +83,54 @@
           </nav>
       </div>
       </section>
+                        
+    
       <section class="py-5">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-12 col-lg-5 mx-auto text-center">
-        <span class="badge bg-primary rounded-pill">PIST OSAS</span>
-        <h2 class="my-3 fs-1 fw-bold">N E W S &nbsp;&nbsp;POSTING</h2>
-        <!-- <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p> -->
-      </div>
-    </div>
-   
-   <div class="row mx-lg-5">
-   @foreach($newsPost as $nw)
-      <div class="col-12 col-xl-6 mb-5">
-        <div class="d-flex flex-row flex-wrap flex-md-nowrap">
-          <img class="img-fluid rounded" style="height:256px; width: 256px; object-fit: cover;" src="{{asset('public/'.$nw->image) }}" alt="">
-          <div class="ps-0 ps-md-3 mt-4 mt-lg-0">
-            <h4>{{$nw->title ?? ''}}</h4>
-            <p class="text-primary">{{$nw->subject ?? ''}}</p>
-            <p class="text-secondary">{{$nw->date ?? ''}}</p>
-            <p class="small text-muted lh-lg">{{$nw->content ?? ''}}</p>
+    <div class="row">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <div class="row mb-5">
+          <h2 class="fs-1 fw-bold">C O N T A C T &nbsp;&nbsp; U S</h2>
+          <p>We will be glad to hear from you</p>
+        </div>
+        <div class="row">
+          <div class="col-6 col-lg-4 mb-5">
+            <span class="text-primary">
+              <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </span>
+            <h6 class="mb-2 mt-3 text-muted">Telephone</h6>
+            <p class="mb-0">+63 221-3067</p>
+            
+          </div>
+          <div class="col-6 col-lg-4 mb-5">
+            <span class="text-primary">
+              <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </span>
+            <h6 class="mb-2 mt-3 text-muted">E-mail</h6>
+            <p class="mb-0">
+picardalpist@gmail.com</p>
+          </div>
+          <div class="col-12 col-lg-4 mb-5">
+            <span class="text-primary">
+              <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </span>
+            <h6 class="mb-2 mt-3 text-muted">Address</h6>
+            <p class="mb-0">2F Michaella’s Plaza, Tibanga</p>
+            <p>Iligan City, 9200</p>
           </div>
         </div>
       </div>
-      @endforeach
     </div>
-   
+    
   </div>
 </section>
-                        
       <section class="position-relative py-5 bg-primary" style="overflow: hidden; z-index: 1;">
         <div class="container">
           <div class="row">

@@ -14,7 +14,8 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/about-us','DashboardController@aboutUs')->name('frontend.aboutUs');
+Route::get('/contact-us','DashboardController@contactUs')->name('frontend.contactUs');
 Route::get('/services','DashboardController@services')->name('frontend.services');
 Route::get('/news-post','DashboardController@newsPost')->name('frontend.newsPost');
 Route::get('/event-post','DashboardController@eventPost')->name('frontend.eventPost');
@@ -78,7 +79,12 @@ Route::group(['middleware' => ['auth']],function() {
             Route::resource('events','EventController'); 
             Route::resource('announcements','AnnouncementController'); 
             Route::post('/storeStudent','UsersController@storeStudent'); 
-            Route::get('/updateStudent','UsersController@storeStudent');    
+
+            Route::get('/updateStudent/{id}','UsersController@updateStudent');    
+            Route::post('/editStudent/{id}','UsersController@editStudent'); 
+            
+            Route::get('/destroyStudent/{id}','UsersController@destroyStudent');    
+            Route::post('/destroyGetStudent/{id}','UsersController@destroyGetStudent'); 
             Route::get('/datepicker',[AppointmentController::class, 'datepicker'])->name('datepicker');
             Route::post('/set-appointment',[AppointmentController::class, 'setAppointment'])->name('set-appointment');    
         });

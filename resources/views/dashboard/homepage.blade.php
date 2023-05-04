@@ -132,7 +132,7 @@
                               <td><span class="badge badge-success">Approve</span></td>
                               @endif
                               <td>
-                                <a href="" class="btn btn-block btn-secondary"><i class="cil-magnifying-glass"></i></a>
+                                <button class="btn btn-block btn-secondary btn-view-status" data-url="{{ route('appointments.show',$std->appointments_id) }}"><i class="cil-magnifying-glass"></i></button>
                               </td>
                               <td>
                                 <button class="btn btn-block btn-primary btn-success btn-update-status" data-url="{{ route('appointments.edit',$std->appointments_id) }}" ><i class="cil-pencil"></i></button>
@@ -150,8 +150,8 @@
         
 @endif
 @if(auth()->user()->user_type == 4)
-<div class="container-fluid">
-    <div class="col-sm-12 col-xl-8">
+<div class="container-fluid row">
+    <div class="col-sm-12 col-xl-8 col-lg-4">
           <div class="animated fadeIn">
             <div class="row">
               <div class="col-sm-12">
@@ -225,6 +225,53 @@
             </div>
           </div>
         </div>
+        <div class="col-sm-12  col-lg-4  col-xl-4 card">
+                    <div class="card-header"> <strong>Latest News/Activites/Holidays/Annoucements</strong>
+                      <div class="card-header-actions"><a class="card-header-action" ><small class="text-muted">Blog</small></a></div>
+                    </div>
+                    <div class="card-body">
+                      <p>
+                        <a class="btn btn-primary collapsed" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">News</a>
+                        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Activities</button>
+                        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Holidays</button>
+                        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">Announcement</button>
+                      </p>
+                      <div class="collapse" id="collapseExample1" style="">
+                        <div class="card card-body">
+                        N E W S<br>
+                        Title: {{$latestPostNews->title ?? ''}}<br>
+                        Subject: {{$latestPostNews->subject ?? ''}}   <br>
+                        Date: {{$latestPostNews->date ?? ''}}<br>
+                        Content: {{$latestPostNews->content ?? ''}}   <br>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample2" style="">
+                      <div class="card card-body">
+                        A C T I V I T I E S <br>
+                        Title: {{$latestPostEvents->title ?? ''}}<br>
+                        Subject: {{$latestPostEvents->subject ?? ''}}   <br>
+                        Date: {{$latestPostEvents->date ?? ''}}<br>
+                        Content: {{$latestPostEvents->content ?? ''}}   <br>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample3" style="">
+                      <div class="card card-body">
+                        H O L I D A Y S <BR>
+                        Title: {{$latestPostHolidays->name ?? ''}}<br>
+                        Date: {{$latestPostHolidays->date ?? ''}}<br>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample4" style="">
+                      <div class="card card-body">
+                        A N N O U N C E M E N T S<BR>
+                        Title: {{$latestPostAnnouncements->title ?? ''}}<br>
+                        Subject: {{$latestPostAnnouncements->subject ?? ''}}   <br>
+                        Date: {{$latestPostAnnouncements->date ?? ''}}<br>
+                        Content: {{$latestPostAnnouncements->content ?? ''}}   <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </div>  
         @endif  
         <div class="append-status"></div>         
@@ -408,6 +455,19 @@
                     success:function(data){
                         div.append(data);
                         $('#update_status-app').modal('show');
+                    }
+                });
+            });
+            $('.btn-view-status').click(function(){
+                var div = $('.append-status');
+                div.empty();
+                var url = $(this).data('url');
+            
+                $.ajax({
+                    url: url,
+                    success:function(data){
+                        div.append(data);
+                        $('#view_status-app').modal('show');
                     }
                 });
             });

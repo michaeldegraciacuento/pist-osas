@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+              <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
                 <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
                 <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
@@ -83,32 +83,40 @@
           </nav>
       </div>
       </section>
+                        
       <section class="py-5">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-12 col-lg-5 mx-auto text-center">
-        <span class="badge bg-primary rounded-pill">PIST OSAS</span>
-        <h2 class="my-3 fs-1 fw-bold">N E W S &nbsp;&nbsp;POSTING</h2>
-        <!-- <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p> -->
-      </div>
-    </div>
-   
-   <div class="row mx-lg-5">
-   @foreach($newsPost as $nw)
-      <div class="col-12 col-xl-6 mb-5">
-        <div class="d-flex flex-row flex-wrap flex-md-nowrap">
-          <img class="img-fluid rounded" style="height:256px; width: 256px; object-fit: cover;" src="{{asset('public/'.$nw->image) }}" alt="">
-          <div class="ps-0 ps-md-3 mt-4 mt-lg-0">
-            <h4>{{$nw->title ?? ''}}</h4>
-            <p class="text-primary">{{$nw->subject ?? ''}}</p>
-            <p class="text-secondary">{{$nw->date ?? ''}}</p>
-            <p class="small text-muted lh-lg">{{$nw->content ?? ''}}</p>
-          </div>
+    <div class="row">
+      <div class="col-12 px-3 col-lg-7 mx-auto">
+        <div class="mb-4 text-center">
+          <h2 class="mt-3 fs-1 fw-bold">A B O U T &nbsp;&nbsp; U S</h2>
         </div>
+        INTRODUCTION
+        <p class="mb-4 text-muted lh-lg">
+        Picardal Institute of Science and Technology, Inc. (PIST) is a private institution located at the 2nd Floor of Michaella’s Plaza Andres Bonifacio Avenue, National Highway, Tibanga, Iligan City. It offers programs under Commission on Higher Education and Skills Development Authority (TESDA). As part of the requirement of CHED, the PIST established the Office of the Student  Affairs and Services (OSAS) to organized, facilitates and managed all the student activities and services to cater the needs of the students.
+        </p>
+        <p class="mb-4 text-muted lh-lg">
+        The Office of the Student Affairs and Services (OSAS) developed this Manual of Operation with the guidelines prescribed by the Commission on Higher Education; the CMO No. 9 series 2013, “Enhanced Policies and Guidelines on Student Affairs and Services”. This office will provide and make accessible services as well as scholarships and student programs.
+        </p>
+        <p class="mb-4 text-muted lh-lg">
+        The OSAS approach towards achieving its goals and objectives its through developing and implementing of Standard Operating Procedure Manual. This manual will give detailed information as to programs and services offered by this offices.
+        </p>
+       
       </div>
-      @endforeach
     </div>
-   
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 px-3 col-lg-10 mx-auto">
+        <div class="mb-4 text-center">
+          <h2 class="mt-3 fs-1 fw-bold">OSAS &nbsp;&nbsp; P E R S O N N E L</h2>
+        </div>
+        <p class="mb-4 text-muted lh-lg">
+       <img src="{{asset('img/org-chart.jpg')}}" alt="">
+</p>
+
+      </div>
+    </div>
   </div>
 </section>
                         
