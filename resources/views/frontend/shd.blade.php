@@ -12,7 +12,7 @@
                         
       <section><div class="container pb-5">
           <nav class="position-relative navbar navbar-expand-lg navbar-light py-3 mb-5">
-            <a class="navbar-brand" href="{{url('/')}}">
+            <a class="navbar-brand" href="#">
               <img src="{{asset('metis-assets/pist.jpeg')}}" alt="" style="width:70px;height:70px;"> PIST OSAS
             </a>
             <button class="navbar-toggler" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders07" aria-controls="sideMenuHeaders07" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,18 +57,7 @@
                   <li class="nav-item"><a class="nav-link" href="{url('/contact-us')}}">Contact Us</a></li>
                 </ul>
       <div class="border-top pt-4 mb-5">
-     
-      @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a class="btn btn-outline-primary w-100 mb-2" href="{{url('/dashboard')}}">Home</a>
-                    @else
-                    <a class="btn btn-outline-primary w-100 mb-2" href="{{url('/login')}}">Log in</a>
-
-                       
-                    @endauth
-                </div>
-            @endif
+      <a class="btn btn-outline-primary w-100 mb-2" href="{{'/login'}}">Log in</a>
       </div>
               </div>
               <div class="mt-auto">
@@ -84,55 +73,53 @@
       </div>
       </section>
                         
-      <section class="py-5 bg-light">
-        <div class="container">
-          <div class="row mb-5">
-            <div class="col-12 col-lg-6">
-              <h2 class="fs-1 fw-bold">
-                <span class="text-primary">OSAS</span>
-                <span> Services Offered</span>
-              </h2>
-            </div>
-            <div class="col-12 col-lg-6 d-flex">
-              <p class="my-auto text-muted lh-lg fw-bold">OSAS stands for Office of the Students Affairs and Services. Its main function is to cater all students-related activities specifically the non-academic or extra-curricular activities.</p>
-            </div>
+      <section class="py-5" style="background-repeat: no-repeat; background-position: top; background-image: url('metis-assets/elements/blob.svg');">
+  <div class="container">
+    <div class="position-relative py-5">
+      <div class="position-absolute" style="top: 0; left: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-left.svg" alt="">
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-7 py-5 mx-auto text-center">
+          <h2 class="mb-3 fs-1 fw-bold">
+            <span>Student</span>
+            <span class="text-primary">Handbook</span>
+            <span>Development</span>
+        
+         
+        </div>
+      </div>
+      <div class="position-absolute" style="bottom: 0; right: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-right.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5 mb-5">
+  <div class="container">
+    
+      <div class="row">
+      <div class="col-12 col-lg-6 y-5">
+        <div class=" h-100">
+          <div class="col-8 col-lg-10 mx-auto">
+           <p class="fs-bold fs-3">What is Student Handbook Development?</p>
+           <p class="fs-bold fs-5">
+           Developing a student handbook is an important process that requires careful planning and attention to detail. A student handbook is a document that outlines the rules, policies, and procedures that students are expected to follow while attending an educational institution. The handbook should be comprehensive and informative, providing students with a clear understanding of what is expected of them and what they can expect from the institution. ​</p>
           </div>
-          <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <a href="{{ url('/studentWelfareServices')}}" style="text-decoration: none;">
-
-              <div class="p-5 text-center bg-white shadow-sm rounded">
-                <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">1</div>
-                <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/work-tv.png" alt="">
-                <h5 class="mb-3">Student Welfare Services</h5>
-                <p class="text-muted fw-bold">Services that support the physical, emotional, and social wellbeing of students and teachers are included in the field of student welfare. The programs promote healthy child growth and development, encourage kind and constructive interactions.</p>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-              <a href="{{ url('/studentDevelopmentServices')}}" style="text-decoration: none;">
-              <div class="p-5 text-center bg-white shadow-sm rounded">
-                <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">2</div>
-                <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/people-watching.png" alt="">
-                <h5 class="mb-3">Student Development Services</h5>
-                <p class="text-muted fw-bold"> It refers to the services and programs that various institutional and/or student-initiated activities, are intended to explore, expand, and develop the student’s full potential for personal growth, leadership, and social responsibility.</p>
-              </div>
-              </a>
-            </div>
-            <div class="col-12 col-lg-4 mb-4">
-            <a href="{{ url('/institutionalStudentProgramsAndServices')}}" style="text-decoration: none;">
-              <div class="p-5 text-center bg-white shadow-sm rounded">
-                <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">3</div>
-                <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/financial-report.png" alt="">
-                <h5 class="mb-3">Institutional Student Programs and Services</h5>
-                <p class="text-muted fw-bold">It refers to the services and initiatives created to proactively address the basic requirements of kids, especially those with special needs and disabilities, for food, shelter, and safety.</p>
-              </div>
-              </a>
-            </div>
+        
+        </div>
+        
+      </div>
+      <div class="col-12 col-lg-6 py-5 py-lg-0 d-flex flex-column align-items-center justify-content-center">
+      <div class="row h-100">
+          <div class="col-8 col-lg-10 mx-auto d-flex align-items-center">
+            <img class="img-fluid" src="metis-assets/illustrations/gamer.png" alt="" >
           </div>
         </div>
-      </section>
-                        
+      </div>
+      </div>
+  </div>
+</section>        
       <section class="position-relative py-5 bg-primary" style="overflow: hidden; z-index: 1;">
         <div class="container">
           <div class="row">
@@ -165,7 +152,7 @@
             </div>
             <div class="col-12 col-lg-9 d-flex justify-content-center justify-content-lg-end">
               <ul class="d-flex list-unstyled flex-wrap">
-                <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/')}}">Home</a></li>
+              <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/')}}">Home</a></li>
                 <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/about-us')}}">About Us</a></li>
                 <li><a class="me-5 text-decoration-none text-dark fs-5 fw-bold" href="{{url('/contact-us')}}">Contact Us</a></li>
                 <li><a class="text-decoration-none text-dark fs-5 fw-bold" href="{{url('/services')}}">Services</a></li>

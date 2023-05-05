@@ -20,10 +20,10 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
       @if (Route::has('login'))
@@ -47,7 +47,10 @@
                   <span class="text-primary">Student's</span>
                   <span>Affairs and Services</span>
                 </h2>
-                <p class="pe-lg-5 text-muted lh-lg mb-0"> OSAS provides services such as counseling, advising, career support, and extracurricular activities to ensure student welfare, development, and academic success.</p>
+                <p class="pe-lg-5 text-muted lh-lg mb-0 fw-bold"> 
+                  OSAS provides services such as counseling, advising, career support, and
+                   extracurricular activities to ensure student welfare, development, and academic success.
+                  </p>
               </div>
               <div>
       <a class="me-2 btn btn-primary" href="{{url('/login')}}">Book Appointment </a><a class="btn btn-outline-primary" href="#">Get Started</a>
@@ -145,7 +148,7 @@
               </span>
               <div>
                 <h5>MISSION</h5>
-                <p class="mb-0 text-muted lh-lg">OSAS (PIST) is committed to provide the students, its main clientele, and other sectors of academic community with outstanding  and effective services as well as developmental opportunities that amplifies their academic experiences.</p>
+                <p class="mb-0 text-muted lh-lg fw-bold">OSAS (PIST) is committed to provide the students, its main clientele, and other sectors of academic community with outstanding  and effective services as well as developmental opportunities that amplifies their academic experiences.</p>
               </div>
             </div>
             <div class="d-flex mb-4 pb-1">
@@ -156,7 +159,7 @@
               </span>
               <div>
                 <h5>VISION</h5>
-                <p class="mb-0 text-muted lh-lg">OSAS (PIST) aspires to be  the premier provider of services and programs, as well as  envisions producing humane, well-equipped , and globally competitive human resources. </p>
+                <p class="mb-0 text-muted lh-lg fw-bold">OSAS (PIST) aspires to be  the premier provider of services and programs, as well as  envisions producing humane, well-equipped , and globally competitive human resources. </p>
               </div>
             </div>
             <div class="d-flex">
@@ -167,7 +170,7 @@
               </span>
               <div>
                 <h5>CORE VALUES</h5>
-                <p class="mb-0 text-muted lh-lg">OSAS (PIST) define who we are as an institution. It percolates in everything we say and do as an institution, and we are committed  to exhibit these values as we work and interact with our students and other sectors of academic community. These core values include: Selfless Dedication, Humility, Integrity and Competence</p>
+                <p class="mb-0 text-muted lh-lg fw-bold">OSAS (PIST) define who we are as an institution. It percolates in everything we say and do as an institution, and we are committed  to exhibit these values as we work and interact with our students and other sectors of academic community. These core values include: Selfless Dedication, Humility, Integrity and Competence</p>
               </div>
             </div>
           </div>
@@ -194,7 +197,7 @@
               <span class="badge bg-primary rounded-pill">News</span>
               <h4 class="my-4 fw-bold">{{$news->title}}</h4>
               <h6 class="my-4 fw-bold">{{$news->date}}</h6>
-              <p class="mb-4 lh-lg text-muted">{{substr($news->content, 0, 70 )}}...</p>
+              <p class="mb-4 lh-lg text-muted">{{substr($news->content, 0, 170 )}}...</p>
               <a class="text-decoration-none" href="{{ ('/news-post') }}">
                 <span>Read More</span>
                 <svg class="d-inline-block ms-1" height="16" width="16" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -213,7 +216,7 @@
               <span class="badge bg-primary rounded-pill">Announcement</span>
               <h4 class="my-4 fw-bold">{{ $announcement->title }}</h4>
               <h6 class="my-4 fw-bold">{{$announcement->date}}</h6>
-              <p class="mb-4 text-muted lh-lg">{{substr($announcement->content, 0, 70 )}}...</p>
+              <p class="mb-4 text-muted lh-lg">{{substr($announcement->content, 0, 170 )}}...</p>
               <a class="text-decoration-none" href="{{ ('/announcements-post') }}">
                 <span>Read More</span>
                 <svg class="d-inline-block ms-1" height="16" width="16" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +236,7 @@
               <span class="badge bg-primary rounded-pill">Activities</span>
               <h4 class="my-4 fw-bold">{{ $event->title }}</h4>
               <h6 class="my-4 fw-bold">{{$event->date}}</h6>
-              <p class="mb-4 text-muted lh-lg"><{{substr($event->content, 0, 70 )}}.../p>
+              <p class="mb-4 text-muted lh-lg"><{{substr($event->content, 0, 170 )}}.../p>
               <a class="text-decoration-none" href="{{ ('/activites-post') }}">
                 <span>Read More</span>
                 <svg class="d-inline-block ms-1" height="16" width="16" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -253,10 +256,20 @@
               
             </div>
           </div>
-          <div class="text-center"></div>
+          <div class="text-center"></div> 
         </div>
       </section>
-                        
+      <style>
+        
+      </style>
+      <section>
+        <div class="container" >
+        <div id="map-container" >
+      <!-- Paste the Google Maps embed code here -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.557567906423!2d124.23485321476572!3d8.22851032857354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a0b03d5b0f3061%3A0x13b5966efb2e35c7!2sMichaella&#39;s%20Plaza!5e0!3m2!1sen!2sph!4v1651732357869!5m2!1sen!2sph" width="1300" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+        </div>
+      </section>   
       <section class="py-5">
         <div class="container">
           <div class="row mb-4">

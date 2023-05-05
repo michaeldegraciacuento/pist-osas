@@ -10,11 +10,13 @@
           <div class="modal-body">
             <input type="text" name="lname" class="form-control mb-3" placeholder="Lastname" required>
             <input type="text" name="fname" class="form-control mb-3" placeholder="Firstname" required>
+            <input type="text" name="position" class="form-control mb-3" placeholder="Position" required>
             <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
             <input type="hidden" name="user_type" id="user_type" class="form-control mb-3">
             <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
             <select name="role" class="form-control mb-3" id="role_select">
-                <option value="">-- Role(Skip if Role is only User) --</option>
+                <!-- <option value="">-- Role(Skip if Role is only User) --</option> -->
+                <option >Please Select</option>
                 @foreach($roles as $i => $role)
                     <option value="{{ $role->name }}">{{ ucwords($role->name) }}</option>
                 @endforeach

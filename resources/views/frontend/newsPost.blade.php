@@ -20,10 +20,10 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
       @if (Route::has('login'))
@@ -95,9 +95,9 @@
    
    <div class="row mx-lg-5">
    @foreach($newsPost as $nw)
-      <div class="col-12 col-xl-6 mb-5">
+      <div class="col-12 col-xl-12 mb-5">
         <div class="d-flex flex-row flex-wrap flex-md-nowrap">
-          <img class="img-fluid rounded" style="height:256px; width: 256px; object-fit: cover;" src="{{asset('public/'.$nw->image) }}" alt="">
+          <img class="img-fluid rounded" style="height:256px; width: 400px; object-fit: cover;" src="{{asset('public/'.$nw->image) }}" alt="">
           <div class="ps-0 ps-md-3 mt-4 mt-lg-0">
             <h4>{{$nw->title ?? ''}}</h4>
             <p class="text-primary">{{$nw->subject ?? ''}}</p>

@@ -31,6 +31,12 @@
                                 <input class="form-control" type="text" placeholder="{{ __('E-Mail Address') }}" name="email" value="{{ $user->email }}" required>
                             </div>
                             <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="cil-paperclip"></i></span>
+                                </div>
+                                <input class="form-control" type="text"  name="position" value="{{ $user->position }}" required>
+                            </div>
+                            <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="cil-paperclip"></i></span>
                               </div>

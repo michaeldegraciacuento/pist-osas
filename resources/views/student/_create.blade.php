@@ -35,7 +35,7 @@
                     <input type="text" name="uli" class="form-control uli text-center" required>
                     <input type="hidden" name="role" class="form-control mb-3 text-center text-uppercase" value="student">
                 </div>
-            </div>
+            </div>  
             <div class="row">
                 <div class="col-6">
                     <label for="">Year:</label>

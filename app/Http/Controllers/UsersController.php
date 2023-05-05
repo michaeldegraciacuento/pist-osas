@@ -33,6 +33,7 @@ class UsersController extends Controller
         $user->lname       = $request->input('lname');
         $user->fname       = $request->input('fname');
         $user->email      = $request->input('email');
+        $user->position      = $request->input('position');
         $user->user_type      = $request->input('user_type');
         $user->password = Hash::make($request->input('password'));
         $user->save();
@@ -70,6 +71,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name       = $request->input('name');
         $user->email      = $request->input('email');
+        $user->position      = $request->input('position');
 
         if($request->password)
         {

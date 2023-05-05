@@ -39,6 +39,7 @@ class CreateUsersTable extends Migration
             $table->string('year')->nullable();
             $table->string('course')->nullable();
             $table->string('image')->nullable();
+            $table->string('position')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

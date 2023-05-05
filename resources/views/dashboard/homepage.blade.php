@@ -3,15 +3,17 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 @section('content')
 @include('student._viewAppointment')
-@if(auth()->user()->user_type == 1)
+@if(auth()->user()->user_type == 1 || auth()->user()->user_type == 2)
 <div class="container-fluid row">
     <div class="col-6 col-lg-3">
         <div class="card">
         <div class="card-body p-3 d-flex align-items-center">
             <div class="bg-primary p-3 mr-3">
-            <svg class="c-icon c-icon-xl">
+            <!-- <svg class="c-icon c-icon-xl">
                 <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-settings"></use>
-            </svg>
+                
+            </svg> -->
+            <i class="c-icon c-icon-xl cil-user"></i>
             </div>
             <div>
             <div class="text-value text-primary">{{$student}}</div>
@@ -28,9 +30,10 @@
         <div class="card">
         <div class="card-body p-3 d-flex align-items-center">
             <div class="bg-primary p-3 mr-3">
-            <svg class="c-icon c-icon-xl">
+            <!-- <svg class="c-icon c-icon-xl">
                 <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-settings"></use>
-            </svg>
+            </svg> -->
+            <i class="c-icon c-icon-xl cil-calendar"></i>
             </div>
             <div>
             <div class="text-value text-primary">{{$appointment}}</div>
@@ -47,10 +50,12 @@
         <div class="card">
         <div class="card-body p-3 d-flex align-items-center">
             <div class="bg-primary p-3 mr-3">
-            <svg class="c-icon c-icon-xl">
+            <!-- <svg class="c-icon c-icon-xl">
                 <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-settings"></use>
-            </svg>
+            </svg> -->
+            <i class="c-icon c-icon-xl cil-notes"></i>
             </div>
+           
             <div>
             <div class="text-value text-primary">{{$event}}</div>
             <div class="text-muted text-uppercase font-weight-bold small">Activities</div>
@@ -66,9 +71,10 @@
         <div class="card">
         <div class="card-body p-3 d-flex align-items-center">
             <div class="bg-primary p-3 mr-3">
-            <svg class="c-icon c-icon-xl">
+            <!-- <svg class="c-icon c-icon-xl">
                 <use xlink:href="assets/icons/coreui/free-symbol-defs.svg#cui-settings"></use>
-            </svg>
+            </svg> -->
+            <i class="c-icon c-icon-xl cil-user-follow"></i>
             </div>
             <div>
             <div class="text-value text-primary">{{$user}}</div>
@@ -81,6 +87,9 @@
             </svg></a></div>
         </div>
     </div>
+</div>
+<div class="container">
+    <img src="{{asset('img/org-chart.jpg')}}" alt="" style="height:550px;width:900px;display:block;margin:auto;">
 </div>
 @endif
 @if(auth()->user()->user_type == 3)
@@ -151,7 +160,7 @@
 @endif
 @if(auth()->user()->user_type == 4)
 <div class="container-fluid row">
-    <div class="col-sm-12 col-xl-8 col-lg-4">
+    <div class="col-sm-12 col-xl-12 col-lg-12">
           <div class="animated fadeIn">
             <div class="row">
               <div class="col-sm-12">
@@ -225,7 +234,8 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-12  col-lg-4  col-xl-4 card">
+        <div class="col-sm-12 col-lg-12 container">
+                    <div class="card">
                     <div class="card-header"> <strong>Latest News/Activites/Holidays/Annoucements</strong>
                       <div class="card-header-actions"><a class="card-header-action" ><small class="text-muted">Blog</small></a></div>
                     </div>
@@ -238,40 +248,72 @@
                       </p>
                       <div class="collapse" id="collapseExample1" style="">
                         <div class="card card-body">
-                        N E W S<br>
-                        Title: {{$latestPostNews->title ?? ''}}<br>
-                        Subject: {{$latestPostNews->subject ?? ''}}   <br>
-                        Date: {{$latestPostNews->date ?? ''}}<br>
-                        Content: {{$latestPostNews->content ?? ''}}   <br>
+                            <div class="row">
+                                <div class="col-6">
+                                    <b>N E W S</b><br>
+                                    <b>Title:</b> {{$latestPostNews->title ?? ''}}<br>
+                                    <b> Subject:</b> {{$latestPostNews->subject ?? ''}}   <br>
+                                    <b>Date:</b> {{$latestPostNews->date ?? ''}}<br>
+                                    <b>Content:</b> {{$latestPostNews->content ?? ''}}   <br>
+                                </div>
+                                <div class="col-6">
+                                    @if(empty($latestPostNews->image))
+                                    @else
+                                    <img src="{{asset('public/'.$latestPostNews->image) }}" alt="" style="width:600px;height:350px;">
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                       </div>
                       <div class="collapse" id="collapseExample2" style="">
-                      <div class="card card-body">
-                        A C T I V I T I E S <br>
-                        Title: {{$latestPostEvents->title ?? ''}}<br>
-                        Subject: {{$latestPostEvents->subject ?? ''}}   <br>
-                        Date: {{$latestPostEvents->date ?? ''}}<br>
-                        Content: {{$latestPostEvents->content ?? ''}}   <br>
+                        <div class="card card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <b>A C T I V I T I E S</b><br>
+                                    <b>Title:</b> {{$latestPostEvents->title ?? ''}}<br>
+                                    <b> Subject:</b> {{$latestPostEvents->subject ?? ''}}   <br>
+                                    <b>Date:</b> {{$latestPostEvents->date ?? ''}}<br>
+                                    <b>Content:</b> {{$latestPostEvents->content ?? ''}}   <br>
+                                </div>
+                                <div class="col-6">
+                                    @if(empty($latestPostEvents->image))
+                                    @else
+                                    <img src="{{asset('public/'.$latestPostEvents->image) }}" alt="" style="width:600px;height:350px;">
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                       </div>
                       <div class="collapse" id="collapseExample3" style="">
-                      <div class="card card-body">
-                        H O L I D A Y S <BR>
-                        Title: {{$latestPostHolidays->name ?? ''}}<br>
-                        Date: {{$latestPostHolidays->date ?? ''}}<br>
+                        <div class="card card-body">
+                            <b>H O L I D A Y S</b> <BR>
+                            <b>Title:</b> {{$latestPostHolidays->name ?? ''}}<br>
+                            <b>Date:</b> {{$latestPostHolidays->date ?? ''}}<br>
                         </div>
                       </div>
                       <div class="collapse" id="collapseExample4" style="">
-                      <div class="card card-body">
-                        A N N O U N C E M E N T S<BR>
-                        Title: {{$latestPostAnnouncements->title ?? ''}}<br>
-                        Subject: {{$latestPostAnnouncements->subject ?? ''}}   <br>
-                        Date: {{$latestPostAnnouncements->date ?? ''}}<br>
-                        Content: {{$latestPostAnnouncements->content ?? ''}}   <br>
+                        <div class="card card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <b>A N N O U N C E M E N T</b><br>
+                                    <b>Title:</b> {{$latestPostAnnouncements->title ?? ''}}<br>
+                                    <b> Subject:</b> {{$latestPostAnnouncements->subject ?? ''}}   <br>
+                                    <b>Date:</b> {{$latestPostAnnouncements->date ?? ''}}<br>
+                                    <b>Content:</b> {{$latestPostAnnouncements->content ?? ''}}   <br>
+                                </div>
+                                <div class="col-6">
+                                    @if(empty($latestPostAnnouncements->image))
+                                    @else
+                                    <img src="{{asset('public/'.$latestPostAnnouncements->image) }}" alt="" style="width:600px;height:350px;">
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                    </div>
+        </div>
+       
         </div>  
         @endif  
         <div class="append-status"></div>         

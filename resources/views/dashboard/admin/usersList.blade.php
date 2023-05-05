@@ -20,6 +20,7 @@
                           <tr>
                             <th>Username</th>
                             <th>E-mail</th>
+                            <th>Position</th>
                             <th>Roles</th>
                             <th width="5%"></th>
                             <th width="5%"></th>
@@ -30,6 +31,7 @@
                             <tr>
                               <td>{{ strtoupper($user->lname)}}, {{strtoupper($user->fname) }}{{strtoupper($user->mname) }}</td>
                               <td>{{ $user->email }}</td>
+                              <td>{{ $user->position }}</td>
                               <td>
                                 @php
                                     $roles = null;

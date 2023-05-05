@@ -50,6 +50,40 @@
     </a>
   </li>
   @endrole
+  @role('assistant')
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{ route('news.index') }}">
+      <i class="cil-newspaper c-sidebar-nav-icon"></i>
+      News
+    </a>
+  </li>
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{ route('events.index') }}">
+      <i class="cil-notes c-sidebar-nav-icon"></i>
+      Activities
+    </a>
+  </li>
+
+ 
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{route('holidays.index')}}">
+    <i class="cil-calendar-check c-sidebar-nav-icon"></i>
+      Holiday
+    </a>
+  </li>
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{ route('students.index') }}">
+      <i class="cil-user-follow c-sidebar-nav-icon"></i>
+      Students
+    </a>
+  </li>
+  <li class="c-sidebar-nav-item">
+    <a class="c-sidebar-nav-link" href="{{route('announcements.index')}}">
+      <i class="cil-line-style c-sidebar-nav-icon"></i>
+      Announcement
+    </a>
+  </li>
+  @endrole
 
   @role('guidance')
   <li class="c-sidebar-nav-item">

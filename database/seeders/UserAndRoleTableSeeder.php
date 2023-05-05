@@ -14,7 +14,7 @@ class UserAndRoleTableSeeder extends Seeder
         $adminRole = Role::create(['name' => 'admin']); 
         
         $studentRole = Role::create(['name' => 'student']);
-        //$assistantRole = Role::create(['name' => 'assistant']);
+        $assistantRole = Role::create(['name' => 'assistant']);
         $guidanceRole = Role::create(['name' => 'guidance']);
         
         $admin = User::create([ 

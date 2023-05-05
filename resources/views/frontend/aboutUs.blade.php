@@ -20,10 +20,10 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-              <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
+              <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
       @if (Route::has('login'))
@@ -92,13 +92,13 @@
           <h2 class="mt-3 fs-1 fw-bold">A B O U T &nbsp;&nbsp; U S</h2>
         </div>
         INTRODUCTION
-        <p class="mb-4 text-muted lh-lg">
+        <p class="mb-4 text-muted lh-lg fw-bold">
         Picardal Institute of Science and Technology, Inc. (PIST) is a private institution located at the 2nd Floor of Michaella’s Plaza Andres Bonifacio Avenue, National Highway, Tibanga, Iligan City. It offers programs under Commission on Higher Education and Skills Development Authority (TESDA). As part of the requirement of CHED, the PIST established the Office of the Student  Affairs and Services (OSAS) to organized, facilitates and managed all the student activities and services to cater the needs of the students.
         </p>
-        <p class="mb-4 text-muted lh-lg">
+        <p class="mb-4 text-muted lh-lg fw-bold">
         The Office of the Student Affairs and Services (OSAS) developed this Manual of Operation with the guidelines prescribed by the Commission on Higher Education; the CMO No. 9 series 2013, “Enhanced Policies and Guidelines on Student Affairs and Services”. This office will provide and make accessible services as well as scholarships and student programs.
         </p>
-        <p class="mb-4 text-muted lh-lg">
+        <p class="mb-4 text-muted lh-lg fw-bold">
         The OSAS approach towards achieving its goals and objectives its through developing and implementing of Standard Operating Procedure Manual. This manual will give detailed information as to programs and services offered by this offices.
         </p>
        

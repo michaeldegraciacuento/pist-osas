@@ -12,8 +12,11 @@ Route::get('/', function () {
     $event = Event::take(1)->get();
     return view('welcome',compact('news','announcement','event'));
 });
-
-
+Route::get('/student-handbook-development','DashboardController@shd')->name('frontend.shd');
+Route::get('/economic-enterprise-development','DashboardController@eed')->name('frontend.eed');
+Route::get('/career-and-job-placement-services','DashboardController@cajps')->name('frontend.cajps');
+Route::get('/guidance-and-counseling-services','DashboardController@gacs')->name('frontend.gacs');
+Route::get('/information-and-orientation-services','DashboardController@iaors')->name('frontend.iaors');
 Route::get('/about-us','DashboardController@aboutUs')->name('frontend.aboutUs');
 Route::get('/contact-us','DashboardController@contactUs')->name('frontend.contactUs');
 Route::get('/services','DashboardController@services')->name('frontend.services');
@@ -101,10 +104,27 @@ Route::group(['middleware' => ['auth']],function() {
             
         });
     });
-    
-    Route::group(['middleware' => ['role:guidance|admin|student']],function() { 
+    Route::group(['middleware' => ['role:assistant|admin']],function() { 
 
-        Route::group(['middleware' => ['role:guidance|admin|student']],function() {  
+        Route::group(['middleware' => ['role:assistant|admin']],function() {  
+            Route::resource('users','UsersController');   
+            Route::resource('news','NewsController'); 
+            Route::resource('holidays','HolidayController'); 
+            Route::resource('students','StudentController'); 
+            Route::resource('events','EventController'); 
+            Route::resource('announcements','AnnouncementController'); 
+            Route::post('/storeStudent','UsersController@storeStudent');
+            Route::get('/updateStudent/{id}','UsersController@updateStudent');    
+            Route::post('/editStudent/{id}','UsersController@editStudent'); 
+           
+            Route::get('/destroyStudent/{id}','UsersController@destroyStudent');    
+            Route::post('/destroyGetStudent/{id}','UsersController@destroyGetStudent');  
+        });
+    });
+    
+    Route::group(['middleware' => ['role:guidance|admin|student|assistant']],function() { 
+
+        Route::group(['middleware' => ['role:guidance|admin|student|assistant']],function() {  
             Route::resource('appointments','AppointmentController');
             Route::resource('holidays','HolidayController'); 
             // Route::get('/datepicker',[App\Http\Controllers\AppointmentController::class, 'datepicker'])->name('datepicker');

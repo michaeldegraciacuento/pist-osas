@@ -20,10 +20,10 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
       @if (Route::has('login'))
@@ -73,8 +73,137 @@
       </div>
       </section>
                         
-      
-                        
+      <section class="py-5" style="background-repeat: no-repeat; background-position: top; background-image: url('metis-assets/elements/blob.svg');">
+  <div class="container">
+    <div class="position-relative py-5">
+      <div class="position-absolute" style="top: 0; left: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-left.svg" alt="">
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-7 py-5 mx-auto text-center">
+          <h2 class="mb-3 fs-1 fw-bold">
+            <span>Student</span>
+            <span class="text-primary">Development</span>
+            <span>Services</span>
+        
+          <div class="row py-4 justify-content-center" style="font-size:15px;">
+          Services that support the physical, emotional, and social wellbeing of students and teachers are included in the field of student welfare. The programs promote healthy child growth and development, encourage kind and constructive interactions.  
+        </div>
+        </div>
+      </div>
+      <div class="position-absolute" style="bottom: 0; right: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-right.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a href="{{url('/')}}" style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">1</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/people-watching.png" alt="">
+          <h5 class="mb-3">Student Activities</h5>
+          <p class="text-muted">Student activities are extracurricular programs, events, and organizations that provide opportunities for students to engage in social, cultural, athletic, and community service activities outside of the classroom.</p>
+        </div>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">2</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/work-tv.png" alt="">
+          <h5 class="mb-3">Student Organization and Activities</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+        </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">3</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/working-from-airport.png" alt="">
+          <h5 class="mb-3">Leadership Training</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+</a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/economic-enterprise-development')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">4</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/financial-report.png" alt="">
+          <h5 class="mb-3">Student Council/Government</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+</a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">5</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Student Discipline</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">6</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Student Publication/Yearbook</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">7</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Scholarship and Financial Assistance</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">8</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Multi-Faith Services</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">9</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Social and Community Involvement Programs</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">10</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Alumni Relations</h5>
+          <p class="text-muted">You can concentrate more time on the most successful aspects of your company.</p>
+        </div>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>        
       <section class="position-relative py-5 bg-primary" style="overflow: hidden; z-index: 1;">
         <div class="container">
           <div class="row">

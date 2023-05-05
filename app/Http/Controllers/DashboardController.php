@@ -27,7 +27,7 @@ class DashboardController extends Controller
         }
         $list_appointment = $list_appointment->paginate(50);
         $list_appointment = $list_appointment->appends($request->except('page'));
-         $latestPostNews = DB::table('news')
+        $latestPostNews = DB::table('news')
         ->latest('created_at')
         ->first();
         $latestPostEvents = DB::table('events')
@@ -98,5 +98,26 @@ class DashboardController extends Controller
     public function destroy($id)
     {
        //
+    }
+
+    public function iaors()
+    {
+        return view('frontend.iaors');
+    }
+    public function gacs()
+    {
+        return view('frontend.gacs');
+    }
+    public function cajps()
+    {
+        return view('frontend.cajps');
+    }
+    public function eed()
+    {
+        return view('frontend.eed');
+    }
+    public function shd()
+    {
+        return view('frontend.shd');
     }
 }

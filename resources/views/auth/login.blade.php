@@ -8,7 +8,7 @@
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
-                <h1 class="text-center">OSAS | PORTAL</h1>
+                <h1 class="text-center">PIST | OSAS</h1>
                 <hr>
                 <p class="text-muted text-center">Sign In to your account</p>
                 <form method="POST" action="{{ route('login') }}">

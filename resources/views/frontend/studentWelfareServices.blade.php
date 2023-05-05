@@ -20,10 +20,10 @@
             </button>
             <div class="collapse navbar-collapse" contenteditable="false">
               <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
-                <li class="nav-item me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item fw-bold"><a class="nav-link" href="{{url('/services')}}" contenteditable="false">Services</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/about-us')}}">About Us</a></li>
+                <li class="nav-item fw-bold me-2"><a class="nav-link" href="{{url('/contact-us')}}">Contact Us</a></li>
               </ul>
       <div class="ms-auto">
       @if (Route::has('login'))
@@ -73,8 +73,87 @@
       </div>
       </section>
                         
-      
-                        
+      <section class="py-5" style="background-repeat: no-repeat; background-position: top; background-image: url('metis-assets/elements/blob.svg');">
+  <div class="container">
+    <div class="position-relative py-5">
+      <div class="position-absolute" style="top: 0; left: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-left.svg" alt="">
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-7 py-5 mx-auto text-center">
+          <h2 class="mb-3 fs-1 fw-bold">
+            <span>Student</span>
+            <span class="text-primary">Welfare</span>
+            <span>and Services</span>
+        
+          <div class="row py-4 justify-content-center" style="font-size:15px;">
+          Services that support the physical, emotional, and social wellbeing of students and teachers are included in the field of student welfare. The programs promote healthy child growth and development, encourage kind and constructive interactions.
+          </div>
+        </div>
+      </div>
+      <div class="position-absolute" style="bottom: 0; right: 0;">
+        <img class="img-fluid" src="metis-assets/elements/dots-right.svg" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a href="{{url('/information-and-orientation-services')}}" style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">1</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/people-watching.png" alt="">
+          <h5 class="mb-3">Information and Orientation Services</h5>
+          <p class="text-muted">This program is designed to make students particularly the new, returnee and transferee know the different services of the College, understand the policies and regulations being implemented, and the purpose of its implementation.</p>
+        </div>
+        </a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <a href="{{url('/guidance-and-counseling-services')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">2</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/work-tv.png" alt="">
+          <h5 class="mb-3">Guidance and Counseling Services</h5>
+          <p class="text-muted">Guidance Counseling Services is to encourage students’ academic, social, emotional and personal development. To reach this aim, guidance counseling services help students get to know themselves better and find effective solutions to their daily problems.</p>
+        </div>
+        </a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/career-and-job-placement-services')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">3</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/working-from-airport.png" alt="">
+          <h5 class="mb-3">Career and Job Placement Services</h5>
+          <p class="text-muted">Provide career development and placement assistance to students and graduates. It creates opportunities for career development enhancements and assists in the job-seeking of students and graduates.</p>
+        </div>
+</a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/economic-enterprise-development')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">4</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/financial-report.png" alt="">
+          <h5 class="mb-3">Economic Enterprise Development</h5>
+          <p class="text-muted">Refers to the process of creating, expanding, and strengthening businesses and organizations to stimulate economic growth and development in a particular area.</p>
+        </div>
+</a>
+      </div>
+      <div class="col-12 col-lg-4 mb-4">
+      <a href="{{url('/student-handbook-development')}}"style="text-decoration:none;">
+        <div class="p-5 text-center bg-white shadow-sm rounded">
+          <div class="d-inline-block py-3 px-4 bg-light rounded-circle text-primary fw-bold">5</div>
+          <img class="img-fluid my-4" height="192" src="metis-assets/illustrations/gamer.png" alt="">
+          <h5 class="mb-3">Student Handbook Development</h5>
+          <p class="text-muted">Student Handbook serve as the bible of the students.</p>
+        </div>
+</a>
+      </div>
+    </div>
+  </div>
+</section>        
       <section class="position-relative py-5 bg-primary" style="overflow: hidden; z-index: 1;">
         <div class="container">
           <div class="row">
