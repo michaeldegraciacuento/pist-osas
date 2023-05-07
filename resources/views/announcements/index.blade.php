@@ -72,7 +72,7 @@
                               </td>
                               @if(auth()->user()->user_type == 2)
                                 <td>
-                                  <button class="btn btn-block btn-danger btn-request" data-url="{{ URL::to('/request',$nw->id) }}"><i class="cil-trash"></i></button>
+                                  <button class="btn btn-block btn-danger btn-request" data-url="{{ URL::to('/requestAnn',$nw->id) }}"><i class="cil-trash"></i></button>
                                 </td>
                               @else
                               <td>

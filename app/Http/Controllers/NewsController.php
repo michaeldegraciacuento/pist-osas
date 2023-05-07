@@ -136,13 +136,13 @@ class NewsController extends Controller
         return redirect()->back()->with('success','Request Successfully Deleted!');    
         }
     }
-    public function request($id)
+    public function requestNews($id)
     {
         $news = News::where('id',$id)->first();
 
         return view('news._request',compact('news'));  
     }
-    public function requestStatus(Request $request, $id)
+    public function requestStatusNews(Request $request, $id)
     {
         $news = News::where('id',$id)->first();
         $news->isDeleted = $request->isDeleted;

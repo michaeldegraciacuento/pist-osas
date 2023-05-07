@@ -138,13 +138,13 @@ class AnnouncementController extends Controller
         return redirect()->back()->with('success','Request Successfully Deleted!');    
         }
     }
-    public function request($id)
+    public function requestAnn($id)
     {
         $announcements = Announcement::where('id',$id)->first();
 
         return view('announcements._request',compact('announcements'));  
     }
-    public function requestStatus(Request $request, $id)
+    public function requestStatusAnn(Request $request, $id)
     {
         $announcements = Announcement::where('id',$id)->first();
         $announcements->isDeleted = $request->isDeleted;

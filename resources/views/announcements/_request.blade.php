@@ -1,7 +1,7 @@
 <div class="modal fade" id="request_announcements" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-primary modal-lg" role="document">
       <div class="modal-content">
-        <form action="{{URL::to('/requestStatus',$announcements->id)}}" method="post" enctype="multipart/form-data">
+        <form action="{{URL::to('/requestStatusAnn',$announcements->id)}}" method="post" enctype="multipart/form-data">
           @csrf 
                    
           <div class="modal-header">

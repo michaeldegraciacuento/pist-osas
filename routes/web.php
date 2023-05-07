@@ -118,14 +118,14 @@ Route::group(['middleware' => ['auth']],function() {
             Route::get('/updateStudent/{id}','UsersController@updateStudent');    
             Route::post('/editStudent/{id}','UsersController@editStudent'); 
 
-            Route::get('/request/{id}','NewsController@request'); 
-            Route::post('/requestStatus/{id}','NewsController@requestStatus'); 
+            Route::get('/requestNews/{id}','NewsController@requestNews'); 
+            Route::post('/requestStatusNews/{id}','NewsController@requestStatusNews'); 
 
-            Route::get('/request/{id}','EventController@request'); 
-            Route::post('/requestStatus/{id}','EventController@requestStatus'); 
+            Route::get('/requestEvents/{id}','EventController@requestEvents'); 
+            Route::post('/requestStatusEvents/{id}','EventController@requestStatusEvents'); 
 
-            Route::get('/request/{id}','AnnouncementController@request'); 
-            Route::post('/requestStatus/{id}','AnnouncementController@requestStatus'); 
+            Route::get('/requestAnn/{id}','AnnouncementController@requestAnn'); 
+            Route::post('/requestStatusAnn/{id}','AnnouncementController@requestStatusAnn'); 
             
             Route::get('/destroyStudent/{id}','UsersController@destroyStudent');    
             Route::post('/destroyGetStudent/{id}','UsersController@destroyGetStudent');  

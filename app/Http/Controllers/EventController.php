@@ -136,13 +136,13 @@ class EventController extends Controller
         return redirect()->back()->with('success','Request Successfully Deleted!');    
         }
     }
-    public function request($id)
+    public function requestEvents($id)
     {
         $events = Event::where('id',$id)->first();
 
         return view('event._request',compact('events'));  
     }
-    public function requestStatus(Request $request, $id)
+    public function requestStatusEvents(Request $request, $id)
     {
         $events = Event::where('id',$id)->first();
         $events->isDeleted = $request->isDeleted;
