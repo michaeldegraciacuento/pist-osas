@@ -128,7 +128,26 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
-        $news->delete();
-        return redirect()->back()->with('success','Successfully Deleted!');    
+        if($news->isDeleted == 0){
+            $news->delete();
+            return redirect()->back()->with('success','Successfully Deleted!');    
+        }else{
+            $news->delete();
+        return redirect()->back()->with('success','Request Successfully Deleted!');    
+        }
+    }
+    public function request($id)
+    {
+        $news = News::where('id',$id)->first();
+
+        return view('news._request',compact('news'));  
+    }
+    public function requestStatus(Request $request, $id)
+    {
+        $news = News::where('id',$id)->first();
+        $news->isDeleted = $request->isDeleted;
+        $news->update();
+
+        return redirect()->back()->with('success','Request Successfully Submitted!');
     }
 }

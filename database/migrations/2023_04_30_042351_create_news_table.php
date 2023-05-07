@@ -17,8 +17,9 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('subject');
+            $table->integer('isDeleted')->default(0);
             $table->date('date');
-            $table->string('content');
+            $table->longText('content');
             $table->string('location');
             $table->string('image');
             $table->timestamps();

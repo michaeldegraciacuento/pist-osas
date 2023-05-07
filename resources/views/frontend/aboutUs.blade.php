@@ -165,14 +165,8 @@
               <p class="small text-muted mb-0">© 2023. All rights reserved.</p>
             </div>
             <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-right">
-              <a class="me-3" href="#">
+            <a class="me-3" href="https://facebook.com/pist.osas">
                 <img src="metis-assets/icons/facebook-blue.svg" alt="">
-              </a>
-              <a class="me-3" href="#">
-                <img src="metis-assets/icons/twitter-blue.svg" alt="">
-              </a>
-              <a href="#">
-                <img src="metis-assets/icons/instagram-blue.svg" alt="">
               </a>
             </div>
           </div>

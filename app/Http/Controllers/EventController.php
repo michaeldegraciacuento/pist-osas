@@ -128,7 +128,26 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        $event->delete();
-        return redirect()->back()->with('success','Successfully Deleted!');   
+        if($event->isDeleted == 0){
+            $event->delete();
+            return redirect()->back()->with('success','Successfully Deleted!');    
+        }else{
+            $event->delete();
+        return redirect()->back()->with('success','Request Successfully Deleted!');    
+        }
+    }
+    public function request($id)
+    {
+        $events = Event::where('id',$id)->first();
+
+        return view('event._request',compact('events'));  
+    }
+    public function requestStatus(Request $request, $id)
+    {
+        $events = Event::where('id',$id)->first();
+        $events->isDeleted = $request->isDeleted;
+        $events->update();
+
+        return redirect()->back()->with('success','Request Successfully Submitted!');
     }
 }

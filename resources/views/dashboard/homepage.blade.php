@@ -243,13 +243,13 @@
                       <p>
                         <a class="btn btn-primary collapsed" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">News</a>
                         <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">Activities</button>
-                        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Holidays</button>
+                        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">Guidance Availability</button>
                         <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample4">Announcement</button>
                       </p>
                       <div class="collapse" id="collapseExample1" style="">
                         <div class="card card-body">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <b>N E W S</b><br>
                                     <b>Title:</b> {{$latestPostNews->title ?? ''}}<br>
                                     <b> Subject:</b> {{$latestPostNews->subject ?? ''}}   <br>
@@ -259,7 +259,7 @@
                                 <div class="col-6">
                                     @if(empty($latestPostNews->image))
                                     @else
-                                    <img src="{{asset('public/'.$latestPostNews->image) }}" alt="" style="width:600px;height:350px;">
+                                    <img src="{{asset('public/'.$latestPostNews->image) }}" alt="" style="width:300px;height:250px;">
                                     @endif
                                 </div>
                             </div>
@@ -268,7 +268,7 @@
                       <div class="collapse" id="collapseExample2" style="">
                         <div class="card card-body">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <b>A C T I V I T I E S</b><br>
                                     <b>Title:</b> {{$latestPostEvents->title ?? ''}}<br>
                                     <b> Subject:</b> {{$latestPostEvents->subject ?? ''}}   <br>
@@ -278,7 +278,7 @@
                                 <div class="col-6">
                                     @if(empty($latestPostEvents->image))
                                     @else
-                                    <img src="{{asset('public/'.$latestPostEvents->image) }}" alt="" style="width:600px;height:350px;">
+                                    <img src="{{asset('public/'.$latestPostEvents->image) }}" alt="" style="width:300px;height:250px;">
                                     @endif
                                 </div>
                             </div>
@@ -286,7 +286,7 @@
                       </div>
                       <div class="collapse" id="collapseExample3" style="">
                         <div class="card card-body">
-                            <b>H O L I D A Y S</b> <BR>
+                            <b>G U I D A N C E &nbsp;&nbsp;&nbsp; A V A I L A B I L I T Y</b> <BR>
                             <b>Title:</b> {{$latestPostHolidays->name ?? ''}}<br>
                             <b>Date:</b> {{$latestPostHolidays->date ?? ''}}<br>
                         </div>
@@ -294,7 +294,7 @@
                       <div class="collapse" id="collapseExample4" style="">
                         <div class="card card-body">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <b>A N N O U N C E M E N T</b><br>
                                     <b>Title:</b> {{$latestPostAnnouncements->title ?? ''}}<br>
                                     <b> Subject:</b> {{$latestPostAnnouncements->subject ?? ''}}   <br>
@@ -304,7 +304,7 @@
                                 <div class="col-6">
                                     @if(empty($latestPostAnnouncements->image))
                                     @else
-                                    <img src="{{asset('public/'.$latestPostAnnouncements->image) }}" alt="" style="width:600px;height:350px;">
+                                    <img src="{{asset('public/'.$latestPostAnnouncements->image) }}" alt="" style="width:300px;height:250px;">
                                     @endif
                                 </div>
                             </div>

@@ -8,7 +8,7 @@
               <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header d-flex">
-                      <h4><i class="fa fa-align-justify"></i>  {{ __('Holiday Management') }}</h4>
+                      <h4><i class="fa fa-align-justify"></i>  {{ __('Guidance Availability Management') }}</h4>
                       <button class="btn btn-primary ml-auto" type="button" data-toggle="modal" data-target="#primaryModal">
                         <i class="cil-plus"></i>
                         Create

@@ -130,7 +130,26 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        $announcement->delete();
-        return redirect()->back()->with('success','Successfully Deleted!');   
+        if($announcement->isDeleted == 0){
+            $announcement->delete();
+            return redirect()->back()->with('success','Successfully Deleted!');    
+        }else{
+            $announcement->delete();
+        return redirect()->back()->with('success','Request Successfully Deleted!');    
+        }
+    }
+    public function request($id)
+    {
+        $announcements = Announcement::where('id',$id)->first();
+
+        return view('announcements._request',compact('announcements'));  
+    }
+    public function requestStatus(Request $request, $id)
+    {
+        $announcements = Announcement::where('id',$id)->first();
+        $announcements->isDeleted = $request->isDeleted;
+        $announcements->update();
+
+        return redirect()->back()->with('success','Request Successfully Submitted!');
     }
 }

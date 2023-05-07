@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-6">
                     <label for="">ID #:</label>
-                    <input type="number" name="uli" class="form-control uli text-center" value="{{ $student->uli }}">
+                    <input type="number" name="uli" class="form-control uli text-center" value="{{ $student->uli }}" disabled>
                 </div>
             </div>
             <div class="row">

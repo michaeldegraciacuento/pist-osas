@@ -50,12 +50,12 @@
                               <td>{{ strtoupper($nw->title) }}</td>
                               <td>{{ strtoupper($nw->subject) }}</td>
                               <td>{{ strtoupper($nw->date) }}</td>
-                               <!-- <td>
-                                <a href="" class="btn btn-block btn-primary"><i class="fa fa-eye"></i></a>
-                              </td> -->
-                              <td>
-                                <button class="btn btn-block btn-primary btn-update"data-url="{{ route('news.edit',$nw->id) }}" ><i class="cil-pencil"></i></button>
+                              @if($nw->isDeleted == '1')
+                               <td>
+                               <span class="badge badge-warning">Pending Request Deletion</span>
                               </td>
+                              
+                              @if(auth()->user()->user_type == 1)
                               <td>
                               <form action="{{ route('news.destroy',$nw->id) }}" method="post" >
                                 @csrf
@@ -63,6 +63,27 @@
                                     <button class="btn btn-block btn-danger"><i class="cil-trash"></i></button>
                               </form> 
                               </td>
+                              @endif
+                              @endif
+                              
+                              @if($nw->isDeleted == '0')
+                              <td>
+                                <button class="btn btn-block btn-primary btn-update"data-url="{{ route('news.edit',$nw->id) }}" ><i class="cil-pencil"></i></button>
+                              </td>
+                              @if(auth()->user()->user_type == 2)
+                                <td>
+                                  <button class="btn btn-block btn-danger btn-request" data-url="{{ URL::to('/request',$nw->id) }}"><i class="cil-trash"></i></button>
+                                </td>
+                              @else
+                              <td>
+                              <form action="{{ route('news.destroy',$nw->id) }}" method="post" >
+                                @csrf
+                                @method('DELETE')
+                                    <button class="btn btn-block btn-danger"><i class="cil-trash"></i></button>
+                              </form> 
+                              </td>
+                              @endif
+                              @endif
                             </tr>
                           @endforeach
                         </tbody>
@@ -88,6 +109,18 @@
                 success:function(data){
                     div.append(data);
                     $('#update_news').modal('show');
+                }
+            });
+        });
+        $('.btn-request').click(function(){
+            var div = $('.append-news');
+            div.empty();
+            var url = $(this).data('url');
+            $.ajax({
+                url: url,
+                success:function(data){
+                    div.append(data);
+                    $('#request_news').modal('show');
                 }
             });
         });

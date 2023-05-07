@@ -4,19 +4,19 @@
         <form action="{{ route('holidays.store') }}" method="post">
           @csrf              
           <div class="modal-header">
-            <h4 class="modal-title">Create New Holiday</h4>
+            <h4 class="modal-title">Create Guidance Availability</h4>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
             
             <div class="row">
                 <div class="col-6">
-                    <label for="">Name:</label>
+                    <label for="">Reason:</label>
                     <input type="text" name="name" class="form-control mb-1 text-center text-uppercase" required>
                     
                 </div>
                 <div class="col-6">
-                    <label for="">Birthday:</label>
+                    <label for="">Date:</label>
                     <input type="date" name="date" class="form-control mb-1 text-center text-uppercase" required>
                     
                 </div>

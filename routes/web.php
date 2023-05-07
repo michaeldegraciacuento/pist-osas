@@ -104,6 +104,7 @@ Route::group(['middleware' => ['auth']],function() {
             
         });
     });
+
     Route::group(['middleware' => ['role:assistant|admin']],function() { 
 
         Route::group(['middleware' => ['role:assistant|admin']],function() {  
@@ -116,7 +117,16 @@ Route::group(['middleware' => ['auth']],function() {
             Route::post('/storeStudent','UsersController@storeStudent');
             Route::get('/updateStudent/{id}','UsersController@updateStudent');    
             Route::post('/editStudent/{id}','UsersController@editStudent'); 
-           
+
+            Route::get('/request/{id}','NewsController@request'); 
+            Route::post('/requestStatus/{id}','NewsController@requestStatus'); 
+
+            Route::get('/request/{id}','EventController@request'); 
+            Route::post('/requestStatus/{id}','EventController@requestStatus'); 
+
+            Route::get('/request/{id}','AnnouncementController@request'); 
+            Route::post('/requestStatus/{id}','AnnouncementController@requestStatus'); 
+            
             Route::get('/destroyStudent/{id}','UsersController@destroyStudent');    
             Route::post('/destroyGetStudent/{id}','UsersController@destroyGetStudent');  
         });
