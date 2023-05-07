@@ -127,6 +127,11 @@ class AppointmentController extends Controller
         Mail::to($user_email)->send(new SendEmail($appointment, $user_email));
         return redirect()->back()->with('success','Successfully Updated Status! Email Verification Sent!');
        }
+       elseif($request->status == 'Reschedule')
+       {
+        Mail::to($user_email)->send(new SendEmail($appointment, $user_email));
+        return redirect()->back()->with('success','Successfully Updated Status! Email Verification Sent!');
+       }
        else
        {
         return redirect()->back()->with('success','Successfully Updated Status!');
