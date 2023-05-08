@@ -65,7 +65,7 @@
                 </div>
                 <div class="col-6">
                     <label for="">Contact Number:</label>
-                    <input type="number" name="contact_number" class="form-control mb-1 text-center text-uppercase" value="{{ $student->contact_number }}">
+                    <input type="number" name="contact_number" class="form-control mb-1 text-center text-uppercase"onKeyPress="if(this.value.length==11) return false;" value="{{ $student->contact_number }}">
                 </div>
             </div>
             <hr>

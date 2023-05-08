@@ -67,7 +67,7 @@
                 </div>
                 <div class="col-6">
                     <label for="">Contact Number:</label>
-                    <input type="number" name="contact_number nm" class="form-control mb-1 text-center text-uppercase" required>
+                    <input type="number" name="contact_number nm" class="form-control mb-1 text-center text-uppercase"onKeyPress="if(this.value.length==11) return false;" required>
                 </div>
                 <style>
                     @layer base {
