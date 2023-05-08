@@ -67,8 +67,17 @@
                 </div>
                 <div class="col-6">
                     <label for="">Contact Number:</label>
-                    <input type="number" name="contact_number" class="form-control mb-1 text-center text-uppercase" required>
+                    <input type="number" name="contact_number nm" class="form-control mb-1 text-center text-uppercase" required>
                 </div>
+                <style>
+                    @layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+                </style>
             </div>
             <hr>
             <h6 class="fw-bold">Complete Permanent Address:</h6>

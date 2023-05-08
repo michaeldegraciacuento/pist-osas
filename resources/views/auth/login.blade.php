@@ -23,7 +23,7 @@
                     </div>
                     <input class="form-control" type="text" placeholder="{{ __('E-Mail') }}" name="email" value="{{ old('email') }}" required autofocus>
                     </div>
-                    <div class="input-group mb-4">
+                    <div class="input-group mb-2">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <svg class="c-icon">
@@ -31,8 +31,10 @@
                         </svg>
                       </span>
                     </div>
-                    <input class="form-control" type="password" placeholder="{{ __('Password') }}" name="password" required>
+                    <input class="form-control" type="password" placeholder="{{ __('Password') }}"  id="myInput" name="password" required>
+                    
                     </div>
+                    <input type="checkbox" onclick="myFunction()" class="mb-4 ml-1">&nbsp;Show Password
                     <div class="row">
                     <div class="col-6">
                         <button class="btn btn-primary px-4" type="submit">{{ __('Login') }}</button>
@@ -63,5 +65,14 @@
 @endsection
 
 @section('javascript')
-
+<script>
+  function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
 @endsection

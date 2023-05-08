@@ -36,6 +36,15 @@
                 </div>
             </div>
             <div class="row">
+            <style>
+                    @layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+                </style>
                 <div class="col-6">
                     <label for="">Birthday:</label>
                     <input type="date" name="birthday" class="form-control mb-1 text-center text-uppercase bday" value="{{ $student->birthday }}">
