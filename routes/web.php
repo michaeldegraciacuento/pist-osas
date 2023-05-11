@@ -12,6 +12,7 @@ Route::get('/', function () {
     $event = Event::take(1)->get();
     return view('welcome',compact('news','announcement','event'));
 });
+Route::get('/our_backup_database', 'DashboardController@our_backup_database')->name('our_backup_database');
 Route::get('/student-handbook-development','DashboardController@shd')->name('frontend.shd');
 Route::get('/economic-enterprise-development','DashboardController@eed')->name('frontend.eed');
 Route::get('/career-and-job-placement-services','DashboardController@cajps')->name('frontend.cajps');

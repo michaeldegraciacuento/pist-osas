@@ -115,8 +115,13 @@
         Users
       </a>
     </li>
+    <li class="c-sidebar-nav-item">
+      <a class="c-sidebar-nav-link" href="{{ route('our_backup_database') }}">
+        <i class="cil-cloud-download c-sidebar-nav-icon"></i>
+        Back-up Database
+      </a>
+    </li>
   @endrole
-
   <li class="c-sidebar-nav-item">
     <form action="{{ url('/logout') }}" method="POST"> @csrf 
       <span class="c-sidebar-nav-link logout-link" style="cursor:pointer">
@@ -125,7 +130,13 @@
       </span>
     </form>
   </li>
-
+<script>
+  $(".db").on("click",function(){
+  
+  $("#db-submit").click();
+  
+});
+</script>
 </ul>
 <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
 </div>

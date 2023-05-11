@@ -31,7 +31,7 @@
                         </svg>
                       </span>
                     </div>
-                    <input class="form-control" type="password" placeholder="{{ __('Password') }}"  id="myInput" name="password" required>
+                    <input class="form-control" type="password" placeholder="{{ __('Password') }}"  id="myInput" name="password" required placeholder="">
                     
                     </div>
                     <input type="checkbox" onclick="myFunction()" class="mb-4 ml-1">&nbsp;Show Password
